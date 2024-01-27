@@ -20,8 +20,16 @@ export default function SearchCharacters() {
     console.log(data);
   };
 
+  
+
   return (
     <div>
+    <div>
+   <h1>Welcome</h1>
+   <Link to={`/characters/all`}>
+   <img className="home_img" src="https://thetruecolors.org/wp-content/uploads/2021/02/marvel-logo-header-1.jpg"/> 
+   </Link>
+    </div>
       <button onClick={handleSubmitCharacter}>search:</button>
       <input
         type="text"

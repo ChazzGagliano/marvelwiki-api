@@ -22,7 +22,7 @@ const Character = () => {
 
     fetchData();
   }, [id]);
-
+  
   if (loading) {
     return <Loading />;
   } else {
