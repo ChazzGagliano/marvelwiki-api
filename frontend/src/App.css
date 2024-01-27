@@ -24,10 +24,6 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -52,3 +48,63 @@
     margin-left: auto;
     margin-right: auto;
 }
+
+.button_search {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Helvetica Neue', sans-serif; /* Use a font similar to the Marvel logo */
+    font-size: 10px;
+    color: #ed1d24; /* Red color used in the Marvel logo */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background-color: #fff; /* White background */
+    border: 2px solid #ed1d24; /* Red border */
+    border-radius: 70px;
+    padding: 10px 20px;
+    margin: 5px;
+  }
+
+  .button_search:hover {
+    background-color: red;
+    color: white;
+    cursor: pointer;
+  }
+
+.search-bar {
+    width: 75%;
+    border: 3px solid rgb(204, 0, 0);
+    padding: 5px;
+    height: 20px;
+    outline: none;
+    border-radius: 5px 5px 5px 5px;
+    color: #000000;
+    margin: 5px;
+
+    .input{
+      width: 100%;
+      
+    }
+  }
+
+  .search-bar:hover {
+    background-color: red;
+    color: white;
+
+  }
+
+  .welcome {
+    color: rgb(255, 255, 255)
+  }
+
+  body {
+    background-image: url("https://t4.ftcdn.net/jpg/01/94/35/19/360_F_194351905_FlzhKrXQkZdLBaq1wZmssTSILprWRghW.jpg");
+    color: white;
+  }
+
+  .linkage {
+    color: white;
+  }
+  

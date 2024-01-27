@@ -15,14 +15,14 @@ const Character = () => {
       const { data } = await axios.get(
         `http://localhost:3030/characters/${id}`
       );
-      setCharacter(data);
+      setCharacter(data[0]);
       console.log(data);
       setLoading(false);
     }
 
     fetchData();
   }, [id]);
-  
+
   if (loading) {
     return <Loading />;
   } else {
@@ -39,15 +39,15 @@ const Character = () => {
         </div>
         <div className="">{character.description}</div>
         <div>
-            <h2>Comic Appearances</h2>
-            {character.comics.items.map((mc) => {
-                return <div>{mc.name}</div>
-            })}
+          <h2>Comic Appearances</h2>
+          {character.comics.items.map((mc) => {
+            return <div>{mc.name}</div>;
+          })}
         </div>
         <div>
-            <h2>Stories</h2>
+          <h2>Stories</h2>
           {character.stories.items.map((ma) => {
-              return <div>{ma.name}</div>;
+            return <div>{ma.name}</div>;
           })}
         </div>
       </div>

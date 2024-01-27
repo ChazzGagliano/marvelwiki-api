@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 export default function SearchCharacters() {
   const [character, setCharacter] = useState("");
   const [term, searchTerm] = useState([]);
+ 
 
   const handleSubmitCharacter = async (e) => {
     e.preventDefault();
@@ -20,35 +21,42 @@ export default function SearchCharacters() {
     console.log(data);
   };
 
-  
-
   return (
     <div>
-    <div>
-   <h1>Welcome</h1>
-   <Link to={`/characters/all`}>
-   <img className="home_img" src="https://thetruecolors.org/wp-content/uploads/2021/02/marvel-logo-header-1.jpg"/> 
-   </Link>
-    </div>
-      <button onClick={handleSubmitCharacter}>search:</button>
-      <input
+      <div>
+        <h1 className="welcome">Welcome</h1>
+        <div>
+        <Link to={`/characters/all`}>
+          <img
+            className="home_img"
+            src="https://thetruecolors.org/wp-content/uploads/2021/02/marvel-logo-header-1.jpg"
+            />
+        </Link>
+            </div>
+      </div>
+      <input className="search-bar"
         type="text"
         onChange={(e) => setCharacter(e.target.value)}
         value={character}
       />
+      <button className="button_search" onClick={handleSubmitCharacter}>search</button>
       {term.length > 0 && (
         <div>
           {term.map((c) => {
-            return <div>
-             <Link to={`/characters/${c.id}`}>
-            <div>
-             {c.name}
-            </div>
-            </Link>
-                </div>;
+            return (
+              <div>
+                <Link to={`/characters/${c.id}`} className="linkage">
+                  <div>{c.name}</div>
+                  <img
+            className="img"
+            src={`${c.thumbnail.path}.${c.thumbnail.extension}`}
+          />
+                </Link>
+              </div>
+            );
           })}
         </div>
       )}
-      </div>
+    </div>
   );
 }
