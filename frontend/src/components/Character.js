@@ -29,13 +29,26 @@ const Character = () => {
     return (
       <div className="">
         <div className="">
-            {character.name}
-            </div>
-        <div className="">
-            {character.description}
+          <img
+            className="img"
+            src={`${character.thumbnail.path}.${character.thumbnail.extension}`}
+          />
         </div>
         <div className="">
-          <img className="img" src={`${character.thumbnail.path}.${character.thumbnail.extension}`} />
+          <h1>{character.name}</h1>
+        </div>
+        <div className="">{character.description}</div>
+        <div>
+            <h2>Comic Appearances</h2>
+            {character.comics.items.map((mc) => {
+                return <div>{mc.name}</div>
+            })}
+        </div>
+        <div>
+            <h2>Stories</h2>
+          {character.stories.items.map((ma) => {
+              return <div>{ma.name}</div>;
+          })}
         </div>
       </div>
     );
