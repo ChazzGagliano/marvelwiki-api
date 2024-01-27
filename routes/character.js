@@ -18,18 +18,18 @@ let hash = md5(stringToHash)
 
 const router = Router()
 
-router.get("/:id", async (req, res) => {
+router.get(`/:id`, async (req, res) => {
     const { id } = req.params
     const {data} = await axios.get(`https://gateway.marvel.com:443/v1/public/characters/${id}?ts=${ts}&apikey=${public_key}&hash=${hash}`)
-    res.json(data.data.results[0])
-    console.log(data.data.results[0])
+    res.json(data.data.results)
+    console.log(data.data.results)
 })
 
-router.get("/search/:searchTerm", async (req, res) => {
+router.get(`/search/:searchTerm`, async (req, res) => {
     const { searchTerm } = req.params
-    const {data} = await axios.get(`https://gateway.marvel.com:443/v1/public/characters?name=${searchTerm}&ts=${ts}&apikey=${public_key}&hash=${hash}`)
-    res.json(data.data.results[0])
-    console.log(data.data.results[0])
+    const {data} = await axios.get(`https://gateway.marvel.com:443/v1/public/characters?nameStartsWith=${searchTerm}&ts=${ts}&apikey=${public_key}&hash=${hash}`)
+    res.json(data.data.results)
+    console.log(data.data.results)
 })
 
 export default router;
