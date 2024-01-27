@@ -96,15 +96,19 @@
   }
 
   .welcome {
-    color: rgb(255, 255, 255)
+    color: rgb(255, 255, 255);
+    margin: 5px;
   }
 
   body {
     background-image: url("https://t4.ftcdn.net/jpg/01/94/35/19/360_F_194351905_FlzhKrXQkZdLBaq1wZmssTSILprWRghW.jpg");
     color: white;
+    background-size: cover;
+
   }
 
   .linkage {
     color: white;
   }
+
   
