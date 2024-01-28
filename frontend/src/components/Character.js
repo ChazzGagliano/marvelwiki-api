@@ -4,6 +4,7 @@ import { useState } from "react";
 import axios from "axios";
 import Loading from "./Loading";
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Character = () => {
   const { id } = useParams();
@@ -41,7 +42,7 @@ const Character = () => {
         <div>
           <h2>Comic Appearances</h2>
           {character.comics.items.map((mc) => {
-            return <div>{mc.name}</div>;
+            return <div>   <Link to={`/comic/${mc.resourceURI.split("/")[6]}`} className="linkage"> {mc.name}</Link></div>;
           })}
         </div>
         <div>
