@@ -21,7 +21,7 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: rgb(250, 240, 240);
 }
 
 @keyframes App-logo-spin {
@@ -35,7 +35,7 @@
 
 
 .home_img {
-    width: 500px;
+    width: 1000px;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -102,7 +102,7 @@
 
   body {
     background-image: url("https://t4.ftcdn.net/jpg/01/94/35/19/360_F_194351905_FlzhKrXQkZdLBaq1wZmssTSILprWRghW.jpg");
-    color: white;
+    color: rgb(255, 255, 255);
     background-size: cover;
 
   }
@@ -111,4 +111,40 @@
     color: white;
   }
 
+  .img_comic {
+    
+    width: 500px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;   
+    border: 1px solid red;
+  }
+
+  .headline {
+    width: 250px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;  
+  }
   
+  .feature {
+    margin-top: 20px;
+    width: 1000px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .description {
+    margin-top: 10px;
+    width: 1000px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .move_over {
+    padding-right:40px
+  }

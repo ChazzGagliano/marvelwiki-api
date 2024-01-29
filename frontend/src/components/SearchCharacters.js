@@ -48,11 +48,13 @@ export default function SearchCharacters() {
             return (
               <div>
                 <Link to={`/characters/${c.id}`} className="linkage">
-                  <div>{c.name}</div>
                   <img
                     className="img"
                     src={`${c.thumbnail.path}.${c.thumbnail.extension}`}
-                  />
+                    />
+                    <div className="headline">
+                        {c.name}
+                    </div>
                 </Link>
               </div>
             );

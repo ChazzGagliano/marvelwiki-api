@@ -4,7 +4,7 @@ import Character from "./components/Character";
 import Comic from "./components/Comic"
 import SearchCharacters from "./components/SearchCharacters";
 import CharacterIndex from "./components/CharacterIndex"
-
+import Storie from "./components/Storie"
 
 
 
@@ -18,6 +18,7 @@ function App() {
               <Route path="/characters/:id" element={<Character />} />
               <Route path="characters" element={<SearchCharacters />} />
               <Route path="/comic/:id" element={<Comic />} />
+              <Route path="/storie/:id" element={<Storie />} />
             </Routes>
           </div>
         </div>

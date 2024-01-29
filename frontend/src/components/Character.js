@@ -30,6 +30,7 @@ const Character = () => {
     return (
       <div className="">
         <div className="">
+            <div className="move_over">
           <img
             className="img"
             src={`${character.thumbnail.path}.${character.thumbnail.extension}`}
@@ -42,16 +43,30 @@ const Character = () => {
         <div>
           <h2>Comic Appearances</h2>
           {character.comics.items.map((mc) => {
-            return <div>   <Link to={`/comic/${mc.resourceURI.split("/")[6]}`} className="linkage"> {mc.name}</Link></div>;
-          })}
+              return (
+                  <div>
+            <div className="">   
+                <Link to={`/comic/${mc.resourceURI.split("/")[6]}`} className="linkage"> {mc.name}
+                </Link>
+            </div>;
+            </div>
+            )
+        })}
         </div>
         <div>
           <h2>Stories</h2>
           {character.stories.items.map((ma) => {
-            return <div>{ma.name}</div>;
+              return (
+                  <div>
+                <div>
+                <Link to={`/storie/${ma.resourceURI.split("/")[6]}`} className="linkage"> {ma.name}
+                </Link>
+                    </div>
+                </div>)
           })}
         </div>
       </div>
+          </div>
     );
   }
 };

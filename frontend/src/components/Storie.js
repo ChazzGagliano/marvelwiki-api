@@ -5,16 +5,16 @@ import axios from "axios";
 import Loading from "./Loading";
 import { useParams } from "react-router-dom";
 
-const Comic = () => {
+const Storie = () => {
   const { id } = useParams();
-  const [comic, setComic] = useState(undefined);
+  const [storie, setStorie] = useState(undefined);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function fetchData() {
-      const moreData = await axios.get(`http://localhost:3030/comic/${id}`);
-      setComic(moreData.data);
-      console.log(moreData.data);
+      const { data } = await axios.get(`http://localhost:3030/storie/${id}`);
+      setStorie(data);
+      console.log(data);
       setLoading(false);
     }
 
@@ -26,11 +26,11 @@ const Comic = () => {
   } else {
     return (
         <div className="description">
-        {comic.title}
-        {comic.map((p) => {
+        {storie.title}
+        {storie.map((p) => {
             return (
                 <div>
-                    {comic[0].title}
+                    {storie[0].title}
                 <div className="headline">
                     Featuring:
                 </div>
@@ -44,13 +44,6 @@ const Comic = () => {
                     )
                 })}
                 <div>
-                  {p.images.map((i) => {
-                      return (
-                          <div>
-                        <img className="img_comic" src={`${i.path}.${i.extension}`} />
-                      </div>
-                    );
-                })}
                 </div>
                 <div className="">
                
@@ -67,4 +60,4 @@ const Comic = () => {
     );
   }
 };
-export default Comic;
+export default Storie;
