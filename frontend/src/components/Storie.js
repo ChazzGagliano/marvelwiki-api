@@ -25,34 +25,26 @@ const Storie = () => {
     return <Loading />;
   } else {
     return (
-        <div className="description">
+      <div className="description">
         {storie.title}
         {storie.map((p) => {
-            return (
-                <div>
-                    {storie[0].title}
-                <div className="headline">
-                    Featuring:
-                </div>
-                {p.characters.items.map((c) => {
-                    return (
-                        <div> 
-                    <div className="description">
-                        {c.name}
-                    </div>
-                    </div>
-                    )
-                })}
-                <div>
-                </div>
-                <div className="">
-               
-                </div>
-                <div className="description"> {p.description}</div>
-                    <div>
+          return (
+            <div>
+              <h1>{storie[0].title}</h1>
+              <div className="description">
+                <h3>Featuring:</h3>
               </div>
-              <div>
-              </div>
+              {p.characters.items.map((c) => {
+                  return (
+                      <div>
+                    <div className="description">{c.name}</div>
+                  </div>
+                );
+            })}
+            <h3>Description:</h3>
+              <div className="description"> {p.description}</div>
+              <div></div>
+              <div></div>
             </div>
           );
         })}

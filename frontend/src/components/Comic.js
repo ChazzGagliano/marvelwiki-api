@@ -25,41 +25,42 @@ const Comic = () => {
     return <Loading />;
   } else {
     return (
-        <div className="description">
+      <div className="description">
         {comic.title}
+
         {comic.map((p) => {
-            return (
-                <div>
-                    {comic[0].title}
-                <div className="headline">
-                    Featuring:
+          return (
+            <div>
+              <h1>{comic[0].title}</h1>
+              <div>
+                <h3>Description:</h3>
+              </div>
+              <div className="description"> {p.description}</div>
+              <div>
+                <div className="description">
+                  <h3>Featuring:</h3>
                 </div>
                 {p.characters.items.map((c) => {
-                    return (
-                        <div> 
-                    <div className="description">
-                        {c.name}
+                  return (
+                    <div>
+                      <div className="description">{c.name}</div>
                     </div>
-                    </div>
-                    )
+                  );
                 })}
                 <div>
                   {p.images.map((i) => {
-                      return (
-                          <div>
-                        <img className="img_comic" src={`${i.path}.${i.extension}`} />
+                    return (
+                      <div>
+                        <img
+                          className="img_comic"
+                          src={`${i.path}.${i.extension}`}
+                        />
                       </div>
                     );
-                })}
+                  })}
                 </div>
-                <div className="">
-               
-                </div>
-                <div className="description"> {p.description}</div>
-                    <div>
               </div>
-              <div>
-              </div>
+              <div></div>
             </div>
           );
         })}
