@@ -5,6 +5,7 @@ import Comic from "./components/Comic"
 import SearchCharacters from "./components/SearchCharacters";
 import CharacterIndex from "./components/CharacterIndex"
 import Storie from "./components/Storie"
+import Event from "./components/Event"
 
 
 
@@ -19,6 +20,7 @@ function App() {
               <Route path="characters" element={<SearchCharacters />} />
               <Route path="/comic/:id" element={<Comic />} />
               <Route path="/storie/:id" element={<Storie />} />
+              <Route path="/event/:id" element={<Event />} />
             </Routes>
           </div>
         </div>

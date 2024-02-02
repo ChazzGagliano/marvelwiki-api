@@ -26,8 +26,6 @@ const Comic = () => {
   } else {
     return (
       <div className="description">
-        {comic.title}
-
         {comic.map((p) => {
           return (
             <div>

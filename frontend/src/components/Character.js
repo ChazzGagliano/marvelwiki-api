@@ -65,6 +65,18 @@ const Character = () => {
                 </div>)
           })}
         </div>
+        <div>
+            <h2>Events</h2>
+        {character.events.items.map((me) => {
+              return (
+                  <div>
+                <div>
+                <Link to={`/event/${me.resourceURI.split("/")[6]}`} className="linkage"> {me.name}
+                </Link>
+                    </div>
+                </div>)
+          })}
+        </div>
       </div>
           </div>
     );
