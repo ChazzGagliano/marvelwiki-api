@@ -6,35 +6,37 @@ import Loading from "./Loading";
 import { useParams } from "react-router-dom";
 
 const Event = () => {
-    const { id } = useParams();
-    const [event, setEvent] = useState(undefined);
-    const [loading, setLoading] = useState(true);
+  const { id } = useParams();
+  const [event, setEvent] = useState(undefined);
+  const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
-        async function fetchData() {
-        const { data } = await axios.get(`http://localhost:3030/event/${id}`)
-        setEvent(data)
-        console.log(data)
-        setLoading(false)
-        }
+  useEffect(() => {
+    async function fetchData() {
+      const { data } = await axios.get(`http://localhost:3030/event/${id}`);
+      setEvent(data);
+      console.log(data);
+      setLoading(false);
+    }
 
-        fetchData()
-    }, [id]);
+    fetchData();
+  }, [id]);
 
-    if (loading) {
-        return <Loading />
-    } else {
-        return (
-            <div className="description">
+  if (loading) {
+    return <Loading />;
+  } else {
+    return (
+      <div className="description">
+        {event.map((e) => {
+          <h1>{event[0].title}</h1>;
+          return (
+            <div>
+              <h1>{event[0].title}</h1>
 
-                {event.map((e) => {
-                     <h1>{event[0].title}</h1>
-                    return (
-                        <div>
-          <h1>{event[0].title}</h1>
-          
-          <img className="img_comic" src={`${event[0].thumbnail.path}.${event[0].thumbnail.extension}`} />
-         
+              <img
+                className="img_comic"
+                src={`${event[0].thumbnail.path}.${event[0].thumbnail.extension}`}
+              />
+
               <div>
                 <h3>Description:</h3>
               </div>
@@ -50,15 +52,13 @@ const Event = () => {
                     </div>
                   );
                 })}
-                
               </div>
-              <div>
-              </div>
-                        </div>
-                    )
-                })}
+              <div></div>
             </div>
-        )
-    }
-}
+          );
+        })}
+      </div>
+    );
+  }
+};
 export default Event;

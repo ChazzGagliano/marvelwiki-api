@@ -46,7 +46,7 @@ export default function SearchCharacters() {
         <div>
           {term.map((c) => {
             return (
-              <div>
+              <div key={c.id}>
                 <Link to={`/characters/${c.id}`} className="linkage">
                   <img
                     className="img"

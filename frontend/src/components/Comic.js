@@ -28,7 +28,7 @@ const Comic = () => {
       <div className="description">
         {comic.map((p) => {
           return (
-            <div>
+            <div Key={p.id}>
               <h1>{comic[0].title}</h1>
               <div>
                 <h3>Description:</h3>
@@ -40,7 +40,8 @@ const Comic = () => {
                 </div>
                 {p.characters.items.map((c) => {
                   return (
-                    <div>
+                    <div key={c.id}>
+
                       <div className="description">{c.name}</div>
                     </div>
                   );

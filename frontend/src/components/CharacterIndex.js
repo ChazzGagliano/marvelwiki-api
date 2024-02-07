@@ -25,7 +25,7 @@ const CharacterIndex = () => {
       <div>
         {characters.map((p) => {
           return (
-            <div>
+            <div key={p.id}>
               <div>
                 {
                   <img
