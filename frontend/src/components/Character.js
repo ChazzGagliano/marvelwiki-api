@@ -28,7 +28,7 @@ const Character = () => {
     return <Loading />;
   } else {
     return (
-      <div className="">
+      <div className="description">
         <div className="">
           <div className="move_over">
             <img
@@ -54,7 +54,6 @@ const Character = () => {
                       {mc.name}
                     </Link>
                   </div>
-                  ;
                 </div>
               );
             })}

@@ -31,30 +31,29 @@ const Event = () => {
           return (
             <div>
               <h1>{event[0].title}</h1>
-
-              <img
-                className="img_comic"
-                src={`${event[0].thumbnail.path}.${event[0].thumbnail.extension}`}
-              />
-
               <div>
                 <h3>Description:</h3>
               </div>
               <div className="description"> {e.description}</div>
               <div>
+            </div>
+
                 <div className="description">
                   <h3>Featuring:</h3>
                 </div>
-                {e.characters.items.map((e) => {
-                  return (
-                    <div>
-                      <div className="description">{e.name}</div>
-                    </div>
-                  );
-                })}
+            {e.characters.items.map((e) => {
+              return (
+                <div>
+                  <div className="description">{e.name}</div>
+                </div>
+              );
+            })}
+              <img
+                className="img_comic"
+                src={`${event[0].thumbnail.path}.${event[0].thumbnail.extension}`}
+              />
+
               </div>
-              <div></div>
-            </div>
           );
         })}
       </div>
