@@ -4,6 +4,7 @@ import { useState } from "react";
 import axios from "axios";
 import Loading from "./Loading";
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Comic = () => {
   const { id } = useParams();
@@ -41,8 +42,12 @@ const Comic = () => {
                 {p.characters.items.map((c) => {
                   return (
                     <div key={c.id}>
-
-                      <div className="description">{c.name}</div>
+                      <Link
+                        to={`/characters/${c.resourceURI.split("/")[6]}`}
+                        className="linkage"
+                      >
+                        {c.name}
+                      </Link>
                     </div>
                   );
                 })}

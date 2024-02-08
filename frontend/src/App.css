@@ -109,6 +109,11 @@
 
   .linkage {
     color: white;
+    margin-top: 10px;
+    width: 1000px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .img_comic {
