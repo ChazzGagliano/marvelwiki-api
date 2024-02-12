@@ -4,6 +4,7 @@ import { useState } from "react";
 import axios from "axios";
 import Loading from "./Loading";
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Storie = () => {
   const { id } = useParams();
@@ -34,14 +35,21 @@ const Storie = () => {
               <div className="description">
                 <h3>Featuring:</h3>
               </div>
-              {p.characters.items.map((c) => {
-                  return (
-                      <div>
-                    <div className="description">{c.name}</div>
+              {p.characters.items.map((s) => {
+                return (
+                  <div key={s.id}>
+                    <div className="description">
+                      <Link
+                        to={`/characters/${s.resourceURI.split("/")[6]}`}
+                        className="linkage"
+                      >
+                        {s.name}
+                      </Link>
+                    </div>
                   </div>
                 );
-            })}
-            <h3>Description:</h3>
+              })}
+              <h3>Description:</h3>
               <div className="description"> {p.description}</div>
               <div></div>
               <div></div>
