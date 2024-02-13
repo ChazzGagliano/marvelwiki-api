@@ -4,6 +4,7 @@ import { useState } from "react";
 import axios from "axios";
 import Loading from "./Loading";
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Event = () => {
   const { id } = useParams();
@@ -35,25 +36,28 @@ const Event = () => {
                 <h3>Description:</h3>
               </div>
               <div className="description"> {e.description}</div>
-              <div>
-            </div>
+              <div></div>
 
-                <div className="description">
-                  <h3>Featuring:</h3>
-                </div>
-            {e.characters.items.map((e) => {
-              return (
-                <div>
-                  <div className="description">{e.name}</div>
-                </div>
-              );
-            })}
+              <div className="description">
+                <h3>Featuring:</h3>
+              </div>
+              {e.characters.items.map((e) => {
+                return (
+                  <div>
+                    <Link
+                      to={`/characters/${e.resourceURI.split("/")[6]}`}
+                      className="linkage"
+                    >
+                      {e.name}
+                    </Link>
+                  </div>
+                );
+              })}
               <img
                 className="img_comic"
                 src={`${event[0].thumbnail.path}.${event[0].thumbnail.extension}`}
               />
-
-              </div>
+            </div>
           );
         })}
       </div>
