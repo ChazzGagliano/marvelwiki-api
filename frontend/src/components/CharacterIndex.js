@@ -3,6 +3,9 @@ import { useEffect } from "react";
 import { useState } from "react";
 import axios from "axios";
 import Loading from "./Loading";
+import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
+
 
 const CharacterIndex = () => {
   const [characters, setCharacters] = useState(undefined);
@@ -26,14 +29,15 @@ const CharacterIndex = () => {
         {characters.map((p) => {
           return (
             <div key={p.id}>
-              <div>
+              <Link to={`/characters/${p.resourceURI.split("/")[6]}`}
+                        className="linkage">
                 {
                   <img
                     className="img"
                     src={`${p.thumbnail.path}.${p.thumbnail.extension}`}
                   />
                 }
-              </div>
+              </Link>
               <div>{p.name}</div>
               <div>{p.description}</div>
             </div>
