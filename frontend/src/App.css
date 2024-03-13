@@ -153,3 +153,12 @@
   .move_over {
     padding-right:40px
   }
+
+  .credits {
+    margin-top: 10px;
+    width: 1000px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center
+  }
