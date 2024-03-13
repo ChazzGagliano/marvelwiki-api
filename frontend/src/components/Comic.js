@@ -31,7 +31,6 @@ const Comic = () => {
           return (
             <div Key={p.id}>
               <h1>{comic[0].title}</h1>
-                <h4> Created by: </h4>
               <div>
                 <h3>Description:</h3>
               </div>
@@ -40,18 +39,16 @@ const Comic = () => {
                 <div className="description">
                   <h3>Featuring:</h3>
                 </div>
-                {p.characters.items.map((c) => {
-                  return (
-                    <div key={c.id}>
-                      <Link
-                        to={`/characters/${c.resourceURI.split("/")[6]}`}
-                        className="linkage"
-                        >
-                        {c.name}
-                      </Link>
-                    </div>
-                  );
-                })}
+                {p.characters.items.map((c) => (
+                  <div key={c.id}>
+                    <Link
+                      to={`/characters/${c.resourceURI.split("/")[6]}`}
+                      className="linkage"
+                    >
+                      {c.name}
+                    </Link>
+                  </div>
+                ))}
                 <div>
                   {p.images.map((i) => {
                     return (
@@ -59,26 +56,21 @@ const Comic = () => {
                         <img
                           className="img_comic"
                           src={`${i.path}.${i.extension}`}
-                          />
+                        />
                       </div>
                     );
                   })}
-                          <div className="credits">
-                              <h4> Credits: </h4>
-                           {p.creators.items.map((creator) => {
-                               return (
-                                <div className="credits">
-                                    <div>
-                                    {creator.name}
-                                    </div>
-                                    <div>
-                                    role: {creator.role}
-                                    </div>
-                                </div>
-                        
-                            )
-                           })}
-                          </div>
+                  <div className="credits">
+                    <h4> Credits: </h4>
+                    {p.creators.items.map((creator) => {
+                      return (
+                        <div className="credits">
+                          <div>{creator.name}</div>
+                          <div>role: {creator.role}</div>
+                        </div>
+                      );
+                    })}
+                  </div>
                 </div>
               </div>
               <div></div>
