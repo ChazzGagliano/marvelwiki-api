@@ -27,6 +27,7 @@ const Comic = () => {
   } else {
     return (
       <div className="description">
+
         {comic.map((p) => {
           return (
             <div Key={p.id}>
@@ -49,6 +50,21 @@ const Comic = () => {
                     </Link>
                   </div>
                 ))}
+                <div className="">
+                  <h3>Stories</h3>
+                </div>
+                <div>
+                  {p.stories.items.map((n) => {
+                    return (
+                      <Link
+                        to={`/storie/${n.resourceURI.split("/")[6]}`}
+                        className="linkage"
+                      >
+                        {n.name}
+                      </Link>
+                    );
+                  })}
+                </div>
                 <div>
                   {p.images.map((i) => {
                     return (
