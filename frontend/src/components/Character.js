@@ -36,6 +36,7 @@ const Character = () => {
               src={`${character.thumbnail.path}.${character.thumbnail.extension}`}
             />
           </div>
+
           <div className="">
             <h1>{character.name}</h1>
             <h3>Total Comics: {character.comics.available}</h3>
