@@ -77,7 +77,7 @@ const Comic = () => {
                     );
                   })}
                   <div className="credits">
-                    <h4> Credits: </h4>
+                    <h4> Creators: </h4>
                     {p.creators.items.map((creator) => {
                       return (
                         <div className="credits">
