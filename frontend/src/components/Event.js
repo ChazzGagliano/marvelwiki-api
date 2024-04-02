@@ -57,6 +57,16 @@ const Event = () => {
                 className="img_comic"
                 src={`${event[0].thumbnail.path}.${event[0].thumbnail.extension}`}
               />
+              <div className="credits">
+                  <h2>Creators</h2>
+              {e.creators.items.map((c) => {
+                return (
+                    <div className="">
+                        {c.name}: {c.role}
+                    </div>
+                )
+              })}
+              </div>
             </div>
           );
         })}
