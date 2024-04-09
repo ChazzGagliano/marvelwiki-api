@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios"
+import { Link } from "react-router-dom";
 
 const Signup = () => {
   const [userName, setuserName] = useState("");
@@ -16,13 +17,18 @@ const Signup = () => {
 
   return (
     <div id="signup">
-      <h1>Signup</h1>
+      <h1 className="welcome">Signup</h1>
+      <Link to={"/"}>
+        <h3 className="welcome">Home</h3>
+      </Link>
       <form onSubmit={handleSubmit}>
+        <div className="">
         <div>
           Username: <input name="username" type="text" value={userName} onChange={(event) => {setuserName(event.target.value)}} />
         </div>
         <div>
           Password: <input name="password" type="password" value={passWord} onChange={(event) => {setpassWord(event.target.value)}} />
+        </div>
         </div>
         <button type="submit">Signup</button>
       </form>

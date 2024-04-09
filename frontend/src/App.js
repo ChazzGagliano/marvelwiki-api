@@ -16,9 +16,9 @@ function App() {
         <div className="">
           <div className="">
             <Routes>
+              <Route path="/" element={<SearchCharacters />} />
               <Route path="/characters/all" element={<CharacterIndex/>} />
               <Route path="/characters/:id" element={<Character />} />
-              <Route path="characters" element={<SearchCharacters />} />
               <Route path="/comic/:id" element={<Comic />} />
               <Route path="/storie/:id" element={<Storie />} />
               <Route path="/event/:id" element={<Event />} />
