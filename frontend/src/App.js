@@ -7,6 +7,7 @@ import CharacterIndex from "./components/CharacterIndex"
 import Storie from "./components/Storie"
 import Event from "./components/Event"
 import Signup from "./components/Signup"
+import Login from "./components/Login"
 
 
 
@@ -23,6 +24,7 @@ function App() {
               <Route path="/storie/:id" element={<Storie />} />
               <Route path="/event/:id" element={<Event />} />
               <Route path="/signup" element={<Signup/>}/>
+              <Route path="/login" element={<Login/>}/>
             </Routes>
           </div>
         </div>

@@ -15,5 +15,10 @@ const router = Router()
         return res.status(200).json(user);
     });
 
+    router.post("/login", async (req, res) => {
+        const userCollection = await users()
+        
+    })
+
 
 export default router;
