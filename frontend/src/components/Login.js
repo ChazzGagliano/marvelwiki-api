@@ -5,14 +5,18 @@ import { Link } from "react-router-dom";
 const Login = () => {
   const [userName, setuserName] = useState("");
   const [passWord, setpassWord] = useState("")
+  const [login, setLogin] = useState(false)
 
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    await axios.post("http://localhost:3030/user/login", {
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    await axios.get("http://localhost:3030/user/login", {
        username: userName,
        password: passWord
     })
+    if (userName == user.username && passWord === user.password)  {
+        setLogin(true)
+    }
   };
 
   return (
@@ -21,7 +25,7 @@ const Login = () => {
         <h3 className="welcome">Home</h3>
       </Link>
       <h1 className="welcome">Login</h1>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleLogin}>
         <div className="">
         <div>
           Username: <input name="username" type="text" value={userName} onChange={(event) => {setuserName(event.target.value)}} />

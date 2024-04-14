@@ -15,9 +15,15 @@ const router = Router()
         return res.status(200).json(user);
     });
 
-    router.post("/login", async (req, res) => {
+    router.get("/login", async (req, res) => {
         const userCollection = await users()
-        
+        const { username } = req.body
+        const { password } = req.body
+        const user = await userCollection.findOne({ 
+          username: user.username,
+          password: user.password
+        });
+        res.json(user.username);;
     })
 
 
