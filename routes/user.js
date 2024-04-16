@@ -15,16 +15,28 @@ const router = Router()
         return res.status(200).json(user);
     });
 
-    router.get("/login", async (req, res) => {
+    router.post("/login", async (req, res) => {
         const userCollection = await users()
-        const { username } = req.body
-        const { password } = req.body
+        const { userName } = req.body
+        const { passWord } = req.body
         const user = await userCollection.findOne({ 
-          username: user.username,
-          password: user.password
+          username: userName
         });
-        res.json(user.username);;
+        
+        console.log(passWord)
+        console.log(user)
+        let compareToMatch = false;
+        
+        try {
+            compareToMatch = await bcrypt.compare(passWord, user.password)
+        } catch(e) {
+        }
+        if (!compareToMatch) return res.json({error: "either the email or password is invalid"})
+        res.json({success: "User authenticated"});
+
     })
+
+
 
 
 export default router;

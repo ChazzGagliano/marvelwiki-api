@@ -5,18 +5,21 @@ import { Link } from "react-router-dom";
 const Login = () => {
   const [userName, setuserName] = useState("");
   const [passWord, setpassWord] = useState("")
-  const [login, setLogin] = useState(false)
+//   const [login, setLogin] = useState(false)
 
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    await axios.get("http://localhost:3030/user/login", {
-       username: userName,
-       password: passWord
+    const response = await axios.post("http://localhost:3030/user/login", {
+       userName: userName,
+       passWord: passWord
     })
-    if (userName == user.username && passWord === user.password)  {
-        setLogin(true)
+    console.log(response)
+    
+    if (response.data.success) {
+        window.location.href = "/"
     }
+    
   };
 
   return (
