@@ -22,7 +22,7 @@ const Signup = () => {
         <h3 className="welcome">Home</h3>
       </Link>
       <form onSubmit={handleSubmit}>
-        <div className="">
+        <div className="welcome">
         <div>
           Username: <input name="username" type="text" value={userName} onChange={(event) => {setuserName(event.target.value)}} />
         </div>

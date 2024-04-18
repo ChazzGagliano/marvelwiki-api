@@ -29,7 +29,7 @@ const Login = () => {
       </Link>
       <h1 className="welcome">Login</h1>
       <form onSubmit={handleLogin}>
-        <div className="">
+        <div className="welcome">
         <div>
           Username: <input name="username" type="text" value={userName} onChange={(event) => {setuserName(event.target.value)}} />
         </div>

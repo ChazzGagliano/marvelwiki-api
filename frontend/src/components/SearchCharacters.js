@@ -24,10 +24,6 @@ export default function SearchCharacters() {
     <div>
       <div>
         <h1 className="welcome">Welcome</h1>
-
-        <Link to={"/signup"}>
-        <h3 className="welcome"> Sign up</h3>
-        </Link>
         <div>
           <Link to={`/characters/all`}>
             <img

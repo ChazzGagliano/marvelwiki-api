@@ -8,12 +8,15 @@ import Storie from "./components/Storie"
 import Event from "./components/Event"
 import Signup from "./components/Signup"
 import Login from "./components/Login"
+import "bootstrap/dist/css/bootstrap.min.css";
+import Navigation from "./components/Navigation.js";
 
 
 
 function App() {
     return (
       <Router>
+        <Navigation/>
         <div className="">
           <div className="">
             <Routes>
