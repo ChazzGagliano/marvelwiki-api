@@ -2,6 +2,7 @@ import { Router } from "express";
 import { users } from "../config/mongoCollections.js";
 import bcrypt from "bcrypt";
 
+
 const router = Router()
     router.post("/register", async (req, res) => {
         const userCollection = await users()
@@ -10,6 +11,8 @@ const router = Router()
             username: req.body.username,
             password: hashedPassword
         }
+        // const checkIfUserExists = await userCollection.findOne({username: username});
+        // if (checkIfUserExists !== null) return res.json({error: "An account with this email already exists"});
         
        await userCollection.insertOne(user)
         return res.status(200).json(user);
@@ -31,10 +34,29 @@ const router = Router()
             compareToMatch = await bcrypt.compare(passWord, user.password)
         } catch(e) {
         }
-        if (!compareToMatch) return res.json({error: "either the email or password is invalid"})
+        if (!compareToMatch) return res.json({error: "Either the email or password is invalid"})
         res.json({success: "User authenticated"});
 
-    })
+        user._id = user._id.toString();
+
+    // req.session.user = user;
+    // req.session.save();
+
+    // res.json({user: user, auth: true});
+});
+
+router.get('/profile', async (req, res) => {
+    if (req.session.user) {
+        const userCollection = await users()
+        const user = await userCollection.findOne({_id: new ObjectId(req.session.user._id)});
+
+        return res.json({user: user});
+    } else {
+        return res.json({error: "You are not logged in!"});
+    }
+});
+
+    
 
 
 
