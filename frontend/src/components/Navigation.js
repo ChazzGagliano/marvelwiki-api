@@ -1,7 +1,7 @@
 import React from "react";
 
 const Navigation = () => {
-    return ( <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    return ( <nav className="navbar navbar-expand-lg navbar-light bg-white">
     <a className="navbar-brand" href="/">
       Home
     </a>
