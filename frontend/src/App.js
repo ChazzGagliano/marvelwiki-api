@@ -8,8 +8,10 @@ import Storie from "./components/Storie"
 import Event from "./components/Event"
 import Signup from "./components/Signup"
 import Login from "./components/Login"
+import Profile from "./components/Profile"
 import "bootstrap/dist/css/bootstrap.min.css";
 import Navigation from "./components/Navigation.js";
+
 
 
 
@@ -28,6 +30,7 @@ function App() {
               <Route path="/event/:id" element={<Event />} />
               <Route path="/signup" element={<Signup/>}/>
               <Route path="/login" element={<Login/>}/>
+              <Route path="/Profile" element={<Profile/>}/>
             </Routes>
           </div>
         </div>

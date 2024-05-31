@@ -39,10 +39,10 @@ const router = Router()
 
         user._id = user._id.toString();
 
-    // req.session.user = user;
-    // req.session.save();
+    req.session.user = user;
+    req.session.save();
 
-    // res.json({user: user, auth: true});
+    res.json({user: user, auth: true});
 });
 
 router.get('/profile', async (req, res) => {
