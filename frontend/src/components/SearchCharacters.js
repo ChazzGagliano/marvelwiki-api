@@ -27,7 +27,7 @@ export default function SearchCharacters() {
         <div>
           <Link to={`/characters/all`}>
             <img
-              className="home_img"
+              className="logo"
               src="https://thetruecolors.org/wp-content/uploads/2021/02/marvel-logo-header-1.jpg"
             />
           </Link>

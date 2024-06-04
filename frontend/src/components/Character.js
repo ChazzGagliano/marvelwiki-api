@@ -32,7 +32,7 @@ const Character = () => {
         <div className="">
           <div className="move_over">
             <img
-              className="img"
+              className="thumbnail"
               src={`${character.thumbnail.path}.${character.thumbnail.extension}`}
             />
           </div>
