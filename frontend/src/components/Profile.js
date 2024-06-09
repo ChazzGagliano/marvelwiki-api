@@ -1,12 +1,32 @@
 import React from "react";
+import { useEffect } from "react";
+import { useState } from "react";
+import axios from "axios";
+import Loading from "./Loading";
+import { Link } from "react-router-dom";
 
 const Profile = () => {
+    const [ user, setUser ] = useState(undefined)
+    const [loading, setLoading] = useState(true);
 
-    return (
+    useEffect(() => {
+        async function fetchData() {
+            const data = await axios.get(`http://localhost:3030/user/profile`, {withCredentials: true} )
+            setUser(data)
+            console.log(data)
+            setLoading(false)
+        }
+        fetchData()
+    }, [])
+
+    if (loading) {
+        return <Loading />;
+      } else {
+        return (
         <div>
-            hello!
+           {user.username}
         </div>
     )
-};
+}};
 
 export default Profile;

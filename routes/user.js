@@ -35,17 +35,19 @@ const router = Router()
         } catch(e) {
         }
         if (!compareToMatch) return res.json({error: "Either the email or password is invalid"})
-        res.json({success: "User authenticated"});
+        console.log({success: "User authenticated"});
 
         user._id = user._id.toString();
 
     req.session.user = user;
     req.session.save();
+    console.log(req.session)
 
     res.json({user: user, auth: true});
 });
 
 router.get('/profile', async (req, res) => {
+    console.log(req.session)
     if (req.session.user) {
         const userCollection = await users()
         const user = await userCollection.findOne({_id: new ObjectId(req.session.user._id)});

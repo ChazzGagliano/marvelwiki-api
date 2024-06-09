@@ -8,7 +8,9 @@ import cors from "cors";
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors());
+app.use(cors({
+        credentials: true, origin: 'http://localhost:3000'
+    }));
 app.use(session({
     name: 'AuthCookie', secret: 'apple bottom jeans', resave: false, saveUninitialized: false, cookie: {
         httpOnly: false, secure: false

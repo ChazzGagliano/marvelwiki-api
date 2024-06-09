@@ -16,7 +16,7 @@ const Login = () => {
     })
     console.log(response)
     
-    if (response.data.success) {
+    if (response.data.auth) {
         window.location.href = "/"
     }
     
