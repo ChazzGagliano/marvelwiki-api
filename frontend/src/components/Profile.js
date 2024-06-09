@@ -24,7 +24,7 @@ const Profile = () => {
       } else {
         return (
         <div>
-           {user.username}
+           <h1>{user.data.user.username}</h1>
         </div>
     )
 }};
