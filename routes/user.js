@@ -10,7 +10,8 @@ const router = Router()
         let hashedPassword = await bcrypt.hash(req.body.password, 12) 
         let user = {
             username: req.body.username,
-            password: hashedPassword
+            password: hashedPassword,
+            characters: []
         }
         // const checkIfUserExists = await userCollection.findOne({username: username});
         // if (checkIfUserExists !== null) return res.json({error: "An account with this email already exists"});

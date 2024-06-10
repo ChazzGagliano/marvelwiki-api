@@ -13,7 +13,16 @@ const Signup = () => {
        username: userName,
        password: passWord
     })
+    
+    if (event == true) {
+        window.location.href = "/"
+    }
   };
+
+
+
+
+
 
   return (
     <div id="signup">
