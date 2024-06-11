@@ -48,6 +48,15 @@ const router = Router()
     res.json({user: user, auth: true});
 });
 
+router.get('/logout', async (req, res) => {
+    if (req.session.user) {
+        req.session.destroy();
+        return res.json({loggedOut: true});
+    } else {
+        return res.json({error: "You are not logged in!"});
+    }
+});
+
 router.get('/profile', async (req, res) => {
     console.log(req.session)
     if (req.session.user) {
