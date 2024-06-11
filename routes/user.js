@@ -13,8 +13,8 @@ const router = Router()
             password: hashedPassword,
             characters: []
         }
-        // const checkIfUserExists = await userCollection.findOne({username: username});
-        // if (checkIfUserExists !== null) return res.json({error: "An account with this email already exists"});
+        const checkIfUserExists = await userCollection.findOne({username: username});
+        if (checkIfUserExists !== null) return res.json({error: "An account with this email already exists"});
         
        await userCollection.insertOne(user)
         return res.status(200).json(user);
@@ -58,6 +58,20 @@ router.get('/profile', async (req, res) => {
     } else {
         return res.json({error: "You are not logged in!"});
     }
+});
+
+router.post("/character/like", async (req, res) => {
+    const userCollection = await users();
+    const userId = req.session.user._id
+    const characterId = req.body;
+
+    await userCollection.updateOne(
+        {id: session.user._id},
+        {$push: { character: characterId} },
+    );
+    res.json({
+        success: `User ${userId} liked character ${characterId}`
+    });
 });
 
     

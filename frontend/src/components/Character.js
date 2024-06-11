@@ -6,10 +6,12 @@ import Loading from "./Loading";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 
+
 const Character = () => {
   const { id } = useParams();
   const [character, setCharacter] = useState(undefined);
   const [loading, setLoading] = useState(true);
+  const [user, setUser] = useState(undefined);
 
   useEffect(() => {
     async function fetchData() {
@@ -20,9 +22,28 @@ const Character = () => {
       console.log(data);
       setLoading(false);
     }
-
     fetchData();
+
+
   }, [id]);
+
+    async function fetchUser() {
+        const data = await axios.get(`http://localhost:3030/user/profile`, {withCredentials: true} )
+    setUser(data);
+    console.log(data)
+  }
+
+  useEffect(() => {
+    fetchUser();
+  }, []);
+
+  const handleLike = async (characterId) => {
+    await axios.post(`http://localhost:3030/user/character/like`, {
+        // userId: session.user,
+        characterId: characterId,
+    })
+    fetchUser()
+  }
 
   if (loading) {
     return <Loading />;
@@ -35,6 +56,16 @@ const Character = () => {
               className="thumbnail"
               src={`${character.thumbnail.path}.${character.thumbnail.extension}`}
             />
+            <div>
+        
+                <button
+                  id="like"
+                  type="button"
+                  onClick={() => handleLike(character.id)}
+                  className=""
+                >
+                </button>
+            </div>
           </div>
 
           <div className="">
