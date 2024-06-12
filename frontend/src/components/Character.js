@@ -51,11 +51,14 @@ const Character = () => {
             <div>
         
                 <button
-                 
+                    className="favorite"
                   type="button"
                     onClick={() => handleLike(character.id, character.name, `${character.thumbnail.path}.${character.thumbnail.extension}`)}
-                  className=""
                 >
+                    <img
+                    className="button"
+                    src="https://icons.iconarchive.com/icons/hopstarter/soft-scraps/256/Button-Favorite-icon.png"
+                    />
                 </button>
             </div>
           </div>
