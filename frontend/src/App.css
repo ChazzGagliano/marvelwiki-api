@@ -33,164 +33,176 @@
   }
 }
 
-
 .logo {
-    width: 1000px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+  width: 1000px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .img {
-    border-radius: 50%;
-    width: 200px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+  border-radius: 50%;
+  width: 200px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .img:hover {
-    transform: scale(1.5)
+  transform: scale(1.5);
 }
 
 .thumbnail {
-    border-radius: 50%;
-    width: 200px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+  border-radius: 50%;
+  width: 200px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .button_search {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Helvetica Neue', sans-serif; /* Use a font similar to the Marvel logo */
-    font-size: 10px;
-    color: #ed1d24; /* Red color used in the Marvel logo */
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    background-color: #fff; /* White background */
-    border: 2px solid #ed1d24; /* Red border */
-    border-radius: 70px;
-    padding: 10px 20px;
-    margin: 5px;
-  }
-
-  .button_search:hover {
-    background-color: red;
-    color: white;
-    cursor: pointer;
-  }
-
-.search-bar {
-    width: 75%;
-    border: 4px solid rgb(204, 0, 0);
-    padding: 5px;
-    height: 30px;
-    outline: none;
-    border-radius: 5px 5px 5px 5px;
-    color: #ff0000;
-    margin: 5px;
-
-    .input{
-      width: 100%;
-      
-    }
-  }
-
-  .search-bar:hover {
-    background-color: red;
-    color: white;
-
-  }
-
-  .welcome {
-    color: rgb(255, 255, 255);
-    margin: 5px;
-  }
-
-  body {
-    background-image: url("https://t4.ftcdn.net/jpg/01/94/35/19/360_F_194351905_FlzhKrXQkZdLBaq1wZmssTSILprWRghW.jpg");
-    color: rgb(255, 255, 255) !important;
-    background-size: cover;
-
-  }
-
-  .linkage {
-    color: white;
-    margin-top: 10px;
-    width: 1000px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .img_comic {
-    width: 500px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 20px;   
-    border: 1px solid red;
-  }
-
-  .favorite {
-    border: none;
-    background-color: transparent;
-    height: 20px;
-    width: 20px;
-    
-  }
-
-  .favorite:hover {
-    transform: scale(1.5);
-  }
-
-  .button {
-    height: 30px;
-    width: 30px;
-    
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-items: center;
+  justify-content: center;
+  font-family: "Helvetica Neue", sans-serif; /* Use a font similar to the Marvel logo */
+  font-size: 10px;
+  color: #ed1d24; /* Red color used in the Marvel logo */
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background-color: #fff; /* White background */
+  border: 2px solid #ed1d24; /* Red border */
+  border-radius: 70px;
+  padding: 10px 20px;
+  margin: 5px;
 }
 
-  .headline {
-    width: 250px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 20px;  
-    text-align: center
-  }
-  
-  .feature {
-    margin-top: 20px;
-    width: 1000px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
+.button_search:hover {
+  background-color: red;
+  color: white;
+  cursor: pointer;
+}
 
-  .description {
-    margin-top: 10px;
-    width: 1000px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    color: white
-   
-  }
+.search-bar {
+  width: 75%;
+  border: 4px solid rgb(204, 0, 0);
+  padding: 5px;
+  height: 30px;
+  outline: none;
+  border-radius: 5px 5px 5px 5px;
+  color: #ff0000;
+  margin: 5px;
 
-  .move_over {
-    padding-right:40px
+  .input {
+    width: 100%;
   }
+}
 
-  .credits {
-    margin-top: 10px;
-    width: 1000px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center
-  }
+.search-bar:hover {
+  background-color: red;
+  color: white;
+}
+
+.welcome {
+  color: rgb(255, 255, 255);
+  margin: 5px;
+}
+
+body {
+  background-image: url("https://t4.ftcdn.net/jpg/01/94/35/19/360_F_194351905_FlzhKrXQkZdLBaq1wZmssTSILprWRghW.jpg");
+  color: rgb(255, 255, 255) !important;
+  background-size: cover;
+}
+
+.linkage {
+  color: white;
+  margin-top: 10px;
+  width: 1000px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.img_comic {
+  width: 500px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  border: 1px solid red;
+}
+
+.favorite {
+  border: none;
+  background-color: transparent;
+  height: 20px;
+  width: 20px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.favorite:hover {
+  transform: scale(1.5);
+}
+
+.button {
+  height: 30px;
+  width: 30px;
+}
+
+.delete {
+  border: none;
+  background-color: transparent;
+  height: 20px;
+  width: 20px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.delete:hover {
+  transform: scale(1.5);
+}
+
+.headline {
+  width: 250px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.feature {
+  margin-top: 20px;
+  width: 1000px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.description {
+  margin-top: 10px;
+  width: 1000px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  color: white;
+}
+
+.move_over {
+  padding-right: 40px;
+}
+
+.credits {
+  margin-top: 10px;
+  width: 1000px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}

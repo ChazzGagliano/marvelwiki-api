@@ -6,20 +6,22 @@ import Loading from "./Loading";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-
 const Character = () => {
   const { id } = useParams();
   const [character, setCharacter] = useState(undefined);
   const [loading, setLoading] = useState(true);
 
-
-  const handleLike = async (characterId, characterName, characterImage)  => {
-    await axios.post(`http://localhost:3030/user/character/like`, {
+  const handleLike = async (characterId, characterName, characterImage) => {
+    await axios.post(
+      `http://localhost:3030/user/character/like`,
+      {
         characterId: characterId,
         characterName: characterName,
         characterImage: characterImage,
-    }, { withCredentials: true})
-  }
+      },
+      { withCredentials: true }
+    );
+  };
 
   useEffect(() => {
     async function fetchData() {
@@ -31,11 +33,7 @@ const Character = () => {
       setLoading(false);
     }
     fetchData();
-
-
   }, [id]);
-
-
 
   if (loading) {
     return <Loading />;
@@ -49,17 +47,24 @@ const Character = () => {
               src={`${character.thumbnail.path}.${character.thumbnail.extension}`}
             />
             <div>
-        
+              <div>
                 <button
-                    className="favorite"
+                  className="favorite"
                   type="button"
-                    onClick={() => handleLike(character.id, character.name, `${character.thumbnail.path}.${character.thumbnail.extension}`)}
+                  onClick={() =>
+                    handleLike(
+                      character.id,
+                      character.name,
+                      `${character.thumbnail.path}.${character.thumbnail.extension}`
+                    )
+                  }
                 >
-                    <img
+                  <img
                     className="button"
                     src="https://icons.iconarchive.com/icons/hopstarter/soft-scraps/256/Button-Favorite-icon.png"
-                    />
+                  />
                 </button>
+              </div>
             </div>
           </div>
 
