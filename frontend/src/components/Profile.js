@@ -31,7 +31,7 @@ const Profile = () => {
             {user.data.user.characters.map((c) => {
                 return (
                 <div>
-                    {c}
+                    {c.characterName}
                 </div>
                 )
             })}

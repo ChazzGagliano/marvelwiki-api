@@ -13,9 +13,11 @@ const Character = () => {
   const [loading, setLoading] = useState(true);
 
 
-  const handleLike = async (characterId) => {
+  const handleLike = async (characterId, characterName, characterImage)  => {
     await axios.post(`http://localhost:3030/user/character/like`, {
         characterId: characterId,
+        characterName: characterName,
+        characterImage: characterImage,
     }, { withCredentials: true})
   }
 
@@ -49,9 +51,9 @@ const Character = () => {
             <div>
         
                 <button
-                  id="like"
+                 
                   type="button"
-                  onClick={() => handleLike(character.id)}
+                    onClick={() => handleLike(character.id, character.name, `${character.thumbnail.path}.${character.thumbnail.extension}`)}
                   className=""
                 >
                 </button>
