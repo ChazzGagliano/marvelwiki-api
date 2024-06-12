@@ -11,7 +11,13 @@ const Character = () => {
   const { id } = useParams();
   const [character, setCharacter] = useState(undefined);
   const [loading, setLoading] = useState(true);
-  const [user, setUser] = useState(undefined);
+
+
+  const handleLike = async (characterId) => {
+    await axios.post(`http://localhost:3030/user/character/like`, {
+        characterId: characterId,
+    })
+  }
 
   useEffect(() => {
     async function fetchData() {
@@ -27,23 +33,7 @@ const Character = () => {
 
   }, [id]);
 
-    async function fetchUser() {
-        const data = await axios.get(`http://localhost:3030/user/profile`, {withCredentials: true} )
-    setUser(data);
-    console.log(data)
-  }
 
-  useEffect(() => {
-    fetchUser();
-  }, []);
-
-  const handleLike = async (characterId) => {
-    await axios.post(`http://localhost:3030/user/character/like`, {
-        // userId: session.user,
-        characterId: characterId,
-    })
-    fetchUser()
-  }
 
   if (loading) {
     return <Loading />;

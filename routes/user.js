@@ -70,12 +70,12 @@ router.get('/profile', async (req, res) => {
 });
 
 router.post("/character/like", async (req, res) => {
+    console.log(req.session)
     const userCollection = await users();
     const userId = req.session.user._id
-    const characterId = req.body;
+    const { characterId } = req.body;
 
     await userCollection.updateOne(
-        {id: session.user._id},
         {$push: { character: characterId} },
     );
     res.json({

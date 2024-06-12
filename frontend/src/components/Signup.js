@@ -14,7 +14,7 @@ const Signup = () => {
        password: passWord
     })
     
-    if (event == true) {
+    if (event === true) {
         window.location.href = "/"
     }
   };

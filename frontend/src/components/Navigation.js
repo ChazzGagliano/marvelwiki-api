@@ -1,6 +1,14 @@
 import React from "react";
+import axios from "axios"
 
 const Navigation = () => {
+    const handleClick = (event) => {
+        event.preventDefault();
+        delete axios.defaults.headers.common["Authorization"];
+        localStorage.removeItem("");
+        window.location.href = "/";
+      };
+
     return ( <nav className="navbar navbar-expand-lg navbar-light bg-white">
     <a className="navbar-brand" href="/">
       Home
@@ -36,6 +44,11 @@ const Navigation = () => {
           <a className="nav-link" href="/profile">
             Profile
           </a>
+        </li>
+        <li>
+        <a href="#" onClick={handleClick}>
+      Logout
+    </a>
         </li>
         <li className="nav-item dropdown">
           <div
