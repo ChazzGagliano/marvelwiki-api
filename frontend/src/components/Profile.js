@@ -47,10 +47,17 @@ const Profile = () => {
           {user.data.user.characters.map((c) => {
             return (
               <div>
-                <div></div>
+                <div>
+
+
                 <Link to={`/characters/${c.characterId}`}>
                   {<img src={c.characterImage} className="img" />}
                 </Link>
+                </div>
+                <div className="headline">
+                    {c.characterName}
+                </div>
+                <div>
                 <button
                   className="delete"
                   type="button"
@@ -67,7 +74,7 @@ const Profile = () => {
                     src="https://www.svgrepo.com/show/21045/delete-button.svg"
                   />
                 </button>
-                <div className="headline">{c.characterName}</div>
+                </div>
               </div>
             );
           })}
