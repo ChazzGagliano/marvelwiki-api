@@ -44,8 +44,13 @@ const Profile = () => {
                     <div>
                     {c.characterName}
                     </div>
+                    <Link to={`/characters/${c.characterId}`}
+                    >
+                        {
                     <img src={c.characterImage}
                     className="thumbnail"/>
+                        }
+                    </Link>
                     <button
                      type="button"
                      onClick={() => handleUnlike(c.characterId, c.characterName, c.characterImage)}
