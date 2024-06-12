@@ -13,10 +13,10 @@ const router = Router()
             password: hashedPassword,
             characters: []
         }
-        const checkIfUserExists = await userCollection.findOne({username: username});
+        const checkIfUserExists = await userCollection.findOne({username: req.body.username});
         if (checkIfUserExists !== null) return res.json({error: "An account with this email already exists"});
         
-       await userCollection.insertOne(user)
+       await userCollection.insertOne(user);
         return res.status(200).json(user);
     });
 
@@ -76,7 +76,8 @@ router.post("/character/like", async (req, res) => {
     const { characterId } = req.body;
 
     await userCollection.updateOne(
-        {$push: { character: characterId} },
+        {_id: new ObjectId(userId)},
+        {$push: { characters: characterId} },
     );
     res.json({
         success: `User ${userId} liked character ${characterId}`

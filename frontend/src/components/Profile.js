@@ -24,7 +24,18 @@ const Profile = () => {
       } else {
         return (
         <div>
+            <div>
            <h1>{user.data.user.username}</h1>
+            </div>
+        <div>
+            {user.data.user.characters.map((c) => {
+                return (
+                <div>
+                    {c}
+                </div>
+                )
+            })}
+        </div>
         </div>
     )
 }};

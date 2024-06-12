@@ -16,7 +16,7 @@ const Character = () => {
   const handleLike = async (characterId) => {
     await axios.post(`http://localhost:3030/user/character/like`, {
         characterId: characterId,
-    })
+    }, { withCredentials: true})
   }
 
   useEffect(() => {
