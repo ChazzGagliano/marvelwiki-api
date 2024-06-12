@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import axios from "axios"
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom"
 
 const Signup = () => {
   const [userName, setuserName] = useState("");
   const [passWord, setpassWord] = useState("")
+  const navigate = useNavigate()
 
 
   const handleSubmit = async (event) => {
@@ -13,10 +15,7 @@ const Signup = () => {
        username: userName,
        password: passWord
     })
-    
-    if (event === true) {
-        window.location.href = "/"
-    }
+    navigate(`/`)
   };
 
 
@@ -27,9 +26,6 @@ const Signup = () => {
   return (
     <div id="signup">
       <h1 className="welcome">Signup</h1>
-      <Link to={"/"}>
-        <h3 className="welcome">Home</h3>
-      </Link>
       <form onSubmit={handleSubmit}>
         <div className="welcome">
         <div>
