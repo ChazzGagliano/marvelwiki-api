@@ -19,6 +19,14 @@ const Profile = () => {
         fetchData()
     }, [])
 
+    const handleUnlike = async (characterId, characterName, characterImage)  => {
+        await axios.post(`http://localhost:3030/user/character/unlike`, {
+            characterId: characterId,
+            characterName: characterName,
+            characterImage: characterImage,
+        }, { withCredentials: true})
+      }
+
     if (loading) {
         return <Loading />;
       } else {
@@ -27,11 +35,22 @@ const Profile = () => {
             <div>
            <h1>{user.data.user.username}</h1>
             </div>
+            <h1>Favorites</h1>
         <div>
             {user.data.user.characters.map((c) => {
                 return (
                 <div>
+                    <div>
                     {c.characterName}
+                    </div>
+                    <img src={c.characterImage}
+                    className="thumbnail"/>
+                    <button
+                     type="button"
+                     onClick={() => handleUnlike(c.characterId, c.characterName, c.characterImage)}
+                   className=""
+                    >
+                    </button>
                 </div>
                 )
             })}
