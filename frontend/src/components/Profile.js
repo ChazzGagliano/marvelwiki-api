@@ -25,6 +25,7 @@ const Profile = () => {
             characterName: characterName,
             characterImage: characterImage,
         }, { withCredentials: true})
+        window.location.reload()
       }
 
     if (loading) {
