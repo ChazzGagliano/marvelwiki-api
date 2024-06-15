@@ -80,7 +80,6 @@ router.delete("/delete-account", async (req, res) => {
         const result = await userCollection.deleteOne({
           _id: new ObjectId(req.session.user._id),
         });
-  
         if (result.deletedCount === 1) {
           req.session.destroy(); // Destroy the session after successful deletion
           return res.status(200).json({ message: "User deleted successfully" });

@@ -23,7 +23,6 @@ const Profile = () => {
     if (user === null) {
         fetchData()
     }
-
   }, [user]);
 
   const handleUnlike = async (characterId, characterName, characterImage) => {
@@ -53,7 +52,7 @@ const Profile = () => {
   if (loading) {
     return <Loading />;
   } else {
-      if (user === null) {
+      if (!user == null) {
           return (
               <div>
                   "New? Sign up?"
