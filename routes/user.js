@@ -73,6 +73,30 @@ router.get("/profile", async (req, res) => {
   }
 });
 
+router.delete("/delete-account", async (req, res) => {
+    if (req.session.user) {
+      try {
+        const userCollection = await users();
+        const result = await userCollection.deleteOne({
+          _id: new ObjectId(req.session.user._id),
+        });
+  
+        if (result.deletedCount === 1) {
+          req.session.destroy(); // Destroy the session after successful deletion
+          return res.status(200).json({ message: "User deleted successfully" });
+        } else {
+          return res.status(404).json({ error: "User not found" });
+        }
+      } catch (error) {
+        console.error("Error deleting user:", error);
+        return res.status(500).json({ error: "An error occurred while deleting the user" });
+      }
+    } else {
+      return res.status(401).json({ error: "You are not logged in!" });
+    }
+  });
+  
+
 router.post("/character/like", async (req, res) => {
   console.log(req.session);
   const userCollection = await users();

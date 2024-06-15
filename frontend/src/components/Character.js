@@ -42,10 +42,13 @@ const Character = () => {
       <div className="description">
         <div className="">
           <div className="move_over">
+            <div>
+
             <img
               className="thumbnail"
               src={`${character.thumbnail.path}.${character.thumbnail.extension}`}
-            />
+              />
+              </div>
             <div>
               <div>
                 <button

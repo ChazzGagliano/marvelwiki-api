@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const Login = () => {
   const [userName, setuserName] = useState("");
   const [passWord, setpassWord] = useState("")
-//   const [login, setLogin] = useState(false)
+
 
 
   const handleLogin = async (e) => {
@@ -19,7 +19,7 @@ const Login = () => {
     console.log(response)
     
     if (response.data.auth) {
-        window.location.href = "/"
+        window.location.href = "/profile"
     }
     
   };

@@ -6,8 +6,9 @@ import Loading from "./Loading";
 import { Link } from "react-router-dom";
 
 const Profile = () => {
-  const [user, setUser] = useState(undefined);
+  const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+
 
   useEffect(() => {
     async function fetchData() {
@@ -18,8 +19,12 @@ const Profile = () => {
       console.log(data);
       setLoading(false);
     }
-    fetchData();
-  }, []);
+
+    if (user === null) {
+        fetchData()
+    }
+
+  }, [user]);
 
   const handleUnlike = async (characterId, characterName, characterImage) => {
     await axios.post(
@@ -34,21 +39,45 @@ const Profile = () => {
     window.location.reload();
   };
 
+  const handleDeleteAccount = async () => {
+    try {
+      await axios.delete('http://localhost:3030/user/delete-account', {
+        withCredentials: true
+      });
+      window.location.href = "/"; 
+    } catch (error) {
+      console.error('Error deleting account:', error);
+    }
+  };
+
   if (loading) {
     return <Loading />;
   } else {
-    return (
-      <div>
+      if (user === null) {
+          return (
+              <div>
+                  "New? Sign up?"
+              </div>
+          )
+      }
+      return (
+          <div>
         <div>
           <h1>{user.data.user.username}</h1>
         </div>
         <h1 className="headline">Favorites</h1>
+        <button
+        className="delete-account-button"
+        type="button"
+        onClick={handleDeleteAccount} // Use onClick instead of onChange
+      >
+                    Delete Account
+                </button>
         <div>
           {user.data.user.characters.map((c) => {
             return (
               <div>
                 <div>
-
 
                 <Link to={`/characters/${c.characterId}`}>
                   {<img src={c.characterImage} className="img" />}
