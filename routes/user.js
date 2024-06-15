@@ -50,9 +50,16 @@ router.post("/login", async (req, res) => {
   res.json({ user: user, auth: true });
 });
 
-router.get("/logout", async (req, res) => {
-  if (req.session.user) {
-    req.session.destroy();
+router.post("/logout", async (req, res) => {
+    if (req.session.user) {
+        const userCollection = await users();
+        const user = await userCollection.findOne({
+          _id: new ObjectId(req.session.user._id),
+        });
+        if (user._id === new ObjectId(req.session.user._id)) {
+            req.session.destroy(); 
+            return res.status(200).json({ message: "User deleted successfully" })
+        }
     return res.json({ loggedOut: true });
   } else {
     return res.json({ error: "You are not logged in!" });
@@ -80,19 +87,18 @@ router.delete("/delete-account", async (req, res) => {
         const result = await userCollection.deleteOne({
           _id: new ObjectId(req.session.user._id),
         });
+  
         if (result.deletedCount === 1) {
-          req.session.destroy(); // Destroy the session after successful deletion
-          return res.status(200).json({ message: "User deleted successfully" });
-        } else {
-          return res.status(404).json({ error: "User not found" });
+            req.session.destroy(); 
+            return res.status(200).json({ message: "User deleted successfully" });
+          }
+        } catch (error) {
+          console.error("Error deleting user:", error);
+          return res.status(500).json({ error: "An error occurred while deleting the user" });
         }
-      } catch (error) {
-        console.error("Error deleting user:", error);
-        return res.status(500).json({ error: "An error occurred while deleting the user" });
+      } else {
+        return res.status(401).json({ error: "You are not logged in!" });
       }
-    } else {
-      return res.status(401).json({ error: "You are not logged in!" });
-    }
   });
   
 
