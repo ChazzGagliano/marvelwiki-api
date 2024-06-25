@@ -4,10 +4,9 @@ import axios from "axios"
 const Navigation = () => {
     const handleClick = (event) => {
         event.preventDefault();
-        delete axios.defaults.headers.common["Authorization"];
-        localStorage.removeItem("");
+        axios.post(`http://localhost:3030/user/logout`);
         window.location.href = "/";
-      };
+    };
 
     return ( <nav className="navbar navbar-expand-lg navbar-light bg-white">
     <a className="navbar-brand" href="/">

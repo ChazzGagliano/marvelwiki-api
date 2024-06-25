@@ -52,18 +52,15 @@ router.post("/login", async (req, res) => {
 
 router.post("/logout", async (req, res) => {
     if (req.session.user) {
-        const userCollection = await users();
-        const user = await userCollection.findOne({
-          _id: new ObjectId(req.session.user._id),
+        req.session.destroy((err) => {
+            if (err) {
+                return res.status(500).json({ error: "Failed to log out. Please try again." });
+            }
+            return res.status(200).json({ message: "Logged out successfully" });
         });
-        if (user._id === new ObjectId(req.session.user._id)) {
-            req.session.destroy(); 
-            return res.status(200).json({ message: "User deleted successfully" })
-        }
-    return res.json({ loggedOut: true });
-  } else {
-    return res.json({ error: "You are not logged in!" });
-  }
+    } else {
+        return res.status(401).json({ error: "You are not logged in!" });
+    }
 });
 
 router.get("/profile", async (req, res) => {
