@@ -26,9 +26,6 @@ const Login = () => {
 
   return (
     <div id="signup">
-      <Link to={"/"}>
-        <h3 className="welcome">Home</h3>
-      </Link>
       <h1 className="welcome">Login</h1>
       <form onSubmit={handleLogin}>
         <div className="welcome">

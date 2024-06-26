@@ -52,15 +52,17 @@ const Profile = () => {
   if (loading) {
     return <Loading />;
   } else {
-      if (!user == null) {
+      if (user?.data?.user?.username === undefined) {
           return (
               <div>
-                  "New? Sign up?"
+                <Link className="linkage-2" to={`/signup`}>
+                  <h1>New? Sign up!</h1>
+                </Link>
               </div>
           )
-      }
-      return (
-          <div>
+      } else {
+          return (
+              <div>
         <div>
           <h1>{user.data.user.username}</h1>
         </div>
@@ -68,14 +70,14 @@ const Profile = () => {
         <button
         className="delete-account-button"
         type="button"
-        onClick={handleDeleteAccount} // Use onClick instead of onChange
-      >
+        onClick={handleDeleteAccount} 
+        >
                     Delete Account
                 </button>
         <div>
           {user.data.user.characters.map((c) => {
-            return (
-              <div>
+              return (
+                  <div>
                 <div>
 
                 <Link to={`/characters/${c.characterId}`}>
@@ -91,24 +93,25 @@ const Profile = () => {
                   type="button"
                   onClick={() =>
                     handleUnlike(
-                      c.characterId,
-                      c.characterName,
-                      c.characterImage
+                        c.characterId,
+                        c.characterName,
+                        c.characterImage
                     )
-                  }
+                }
                 >
                   <img
                     className="button"
                     src="https://www.svgrepo.com/show/21045/delete-button.svg"
-                  />
+                    />
                 </button>
                 </div>
               </div>
             );
-          })}
+        })}
         </div>
       </div>
     );
+    }
   }
 };
 
