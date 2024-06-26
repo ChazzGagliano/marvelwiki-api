@@ -50,7 +50,8 @@ router.post("/login", async (req, res) => {
   res.json({ user: user, auth: true });
 });
 
-router.post("/logout", async (req, res) => {
+router.get("/logout", async (req, res) => {
+    console.log(req.session)
     if (req.session.user) {
         req.session.destroy((err) => {
             if (err) {

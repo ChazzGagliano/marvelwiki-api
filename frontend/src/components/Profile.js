@@ -52,7 +52,7 @@ const Profile = () => {
   if (loading) {
     return <Loading />;
   } else {
-      if (user?.data?.user?.username === undefined) {
+      if (user.data.error) {
           return (
               <div>
                 <Link className="linkage-2" to={`/signup`}>

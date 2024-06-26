@@ -2,10 +2,12 @@ import React from "react";
 import axios from "axios"
 
 const Navigation = () => {
-    const handleClick = (event) => {
+    const handleClick = async (event) => {
         event.preventDefault();
-        axios.post(`http://localhost:3030/user/logout`);
-        window.location.href = "/";
+        await axios.get(`http://localhost:3030/user/logout`, {
+            withCredentials: true
+          });
+        window.location.href = "/profile";
     };
 
     return ( <nav className="navbar navbar-expand-lg navbar-light bg-white">
@@ -44,8 +46,8 @@ const Navigation = () => {
             Profile
           </a>
         </li>
-        <li>
-        <a href="#" onClick={handleClick}>
+        <li className="nav-item">
+        <a className="nav-link" href="#" onClick={handleClick}>
       Logout
     </a>
         </li>
