@@ -146,7 +146,7 @@ router.post("/character/unlike", async (req, res) => {
       }
     );
     res.json({
-      success: `User ${userId} liked character ${characterId}`,
+      success: `User ${userId} removed character ${characterId}`,
     });
   });
 

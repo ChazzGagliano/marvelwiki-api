@@ -43,7 +43,7 @@ const Profile = () => {
       await axios.delete('http://localhost:3030/user/delete-account', {
         withCredentials: true
       });
-      window.location.href = "/"; 
+      window.location.href = "/profile"; 
     } catch (error) {
       console.error('Error deleting account:', error);
     }
@@ -66,7 +66,7 @@ const Profile = () => {
         <div>
           <h1>{user.data.user.username}</h1>
         </div>
-        <h1 className="headline">Favorites</h1>
+        <h1 className="headline">Starred</h1>
         <button
         className="delete-account-button"
         type="button"
