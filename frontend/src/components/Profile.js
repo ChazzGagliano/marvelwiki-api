@@ -49,6 +49,15 @@ const Profile = () => {
     }
   };
 
+  const handleClick = async (event) => {
+    event.preventDefault();
+    const session = await axios.get(`http://localhost:3030/user/logout`, {
+        withCredentials: true
+      });
+      console.log(session)
+    window.location.href = "/profile";
+};
+
   if (loading) {
     return <Loading />;
   } else {
@@ -74,6 +83,11 @@ const Profile = () => {
         >
                     Delete Account
                 </button>
+                <div>
+                <a className="nav-link" href="#" onClick={handleClick}>
+      Logout
+    </a>
+                </div>
         <div>
           {user.data.user.characters.map((c) => {
               return (
