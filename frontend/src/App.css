@@ -162,6 +162,11 @@ body {
   width: 30px;
 }
 
+.logout-button {
+    height: 40px;
+    width: 40px;
+}
+
 .delete {
   border: none;
   background-color: transparent;
@@ -173,8 +178,23 @@ body {
   width: 50%;
 }
 
+
+
 .delete:hover {
-  transform: scale(1.5);
+    transform: scale(1.5);
+}
+
+.logout {
+    border: none;
+    background-color: transparent !important;
+    height: 50px;
+    width: 50px;
+    display: block;
+    margin-right: auto;
+}
+
+.logout:hover {
+    transform: scale(1.5);
 }
 
 .headline {
@@ -215,3 +235,4 @@ body {
   margin-right: auto;
   text-align: center;
 }
+
