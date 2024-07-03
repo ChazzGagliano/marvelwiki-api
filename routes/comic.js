@@ -3,7 +3,6 @@ import { config } from "dotenv";
 import { createHash } from "crypto";
 import axios from "axios";
 import { comics } from "../config/mongoCollections.js";
-import { ObjectId } from "mongodb";
 
 config();
 const md5 = (data) => {
@@ -37,28 +36,41 @@ router.post("/like", async (req, res) => {
 
   const comicExistsInDB = await comicCollection.findOne({
     comicId: comicId,
-  })
-  console.log(comicExistsInDB)
-
+  });
+  console.log(comicExistsInDB);
 
   if (!comicExistsInDB) {
     let comic = {
-        comicId: comicId,
-        comicName: comicName,
-        likes: [userId]
+      comicId: comicId,
+      comicName: comicName,
+      likes: [userId],
     };
     await comicCollection.insertOne(comic);
   } else {
     await comicCollection.updateOne(
-        { comicId: comicId},
-        { $push: { likes: userId } },
+      { comicId: comicId },
+      { $push: { likes: userId } }
     );
   }
 
   res.json({
     success: `User ${userId} liked comic ${comicId}`,
   });
+});
 
+router.post("/unlike", async (req, res) => {
+  const comicCollection = await comics();
+  const userId = req.session.user._id;
+  const { comicId } = req.body;
+
+  await comicCollection.updateOne(
+    { comicId: comicId },
+    { $pull: { likes: userId } }
+  );
+
+  res.json({
+    success: `User ${userId} liked comic ${comicId}`,
+  });
 });
 
 export default router;

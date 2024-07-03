@@ -22,6 +22,19 @@ const Comic = () => {
       );
     };
 
+    const handleUnlike = async (comicId) => {
+        await axios.post(
+          `http://localhost:3030/comic/unlike`,
+          {
+            comicId: comicId,
+          },
+          { withCredentials: true }
+        );
+      };
+
+
+  
+
   useEffect(() => {
     async function fetchData() {
       const moreData = await axios.get(`http://localhost:3030/comic/${id}`);
@@ -57,10 +70,26 @@ const Comic = () => {
                 >
                   <img
                     className="button"
-                    src=""
+                    src="https://w7.pngwing.com/pngs/399/876/png-transparent-like-icon-facebook-like-button-emoticon-emoji-facebook-blue-angle-text-thumbnail.png"
                   />
                 </button>
             
+                <button
+                  className="favorite"
+                  type="button"
+                  onClick={() =>
+                    handleUnlike(
+                      comic[0].id,
+                      comic[0].title,
+                    )
+                  }
+                >
+                  <img
+                    className="button"
+                    src=""
+                  />
+                </button>
+
                 <h3>Description:</h3>
               </div>
               <div className="description"> {p.description}</div>
