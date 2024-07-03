@@ -11,6 +11,17 @@ const Comic = () => {
   const [comic, setComic] = useState(undefined);
   const [loading, setLoading] = useState(true);
 
+  const handleLike = async (comicId, comicName) => {
+      await axios.post(
+        `http://localhost:3030/comic/like`,
+        {
+          comicId: comicId,
+          comicName: comicName,
+        },
+        { withCredentials: true }
+      );
+    };
+
   useEffect(() => {
     async function fetchData() {
       const moreData = await axios.get(`http://localhost:3030/comic/${id}`);
@@ -18,6 +29,7 @@ const Comic = () => {
       console.log(moreData.data);
       setLoading(false);
     }
+
 
     fetchData();
   }, [id]);
@@ -33,6 +45,22 @@ const Comic = () => {
             <div Key={p.id}>
               <h1>{comic[0].title}</h1>
               <div>
+              <button
+                  className="favorite"
+                  type="button"
+                  onClick={() =>
+                    handleLike(
+                      comic[0].id,
+                      comic[0].title,
+                    )
+                  }
+                >
+                  <img
+                    className="button"
+                    src=""
+                  />
+                </button>
+            
                 <h3>Description:</h3>
               </div>
               <div className="description"> {p.description}</div>
