@@ -11,6 +11,8 @@ router.post("/register", async (req, res) => {
     username: req.body.username,
     password: hashedPassword,
     characters: [],
+    cart: [],
+    orders: [],
   };
   const checkIfUserExists = await userCollection.findOne({
     username: req.body.username,
