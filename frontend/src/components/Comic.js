@@ -11,6 +11,19 @@ const Comic = () => {
   const [comic, setComic] = useState(undefined);
   const [loading, setLoading] = useState(true);
 
+  const addToCart = async (comicId, comicTitle, comicPrice, comicImage) => {
+    await axios.post(
+        `http://localhost:3030/user/cart/add`,
+        {
+            comicId: comicId, 
+            comicTitle: comicTitle,
+            comicPrice: comicPrice,
+            comicImage, comicImage
+        },
+        { withCredentials: true }
+    )
+  }
+
   const handleLike = async (comicId, comicName) => {
       await axios.post(
         `http://localhost:3030/comic/like`,
@@ -88,6 +101,24 @@ const Comic = () => {
                     className="button"
                     src=""
                   />
+                </button>
+
+                <button
+                className=""
+                type="button"
+                onClick={() => 
+                addToCart(
+                    comic[0].id,
+                    comic[0].title,
+                    comic[0].prices[0].price,
+                    comic[0].images[0].path
+                )}
+                >
+
+                    <img 
+                    className="button"
+                    src="https://png.pngtree.com/element_our/20190531/ourmid/pngtree-shopping-cart-convenient-icon-image_1287807.jpg"
+                    />
                 </button>
                   <h2>${comic[0].prices[0].price}</h2>
                 <h3>Description:</h3>
