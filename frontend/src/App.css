@@ -157,6 +157,20 @@ body {
   transform: scale(1.5);
 }
 
+.cart {
+    border: none;
+    background-color: transparent !important;
+    height: 60px;
+    width: 60px;  
+}
+
+.cart:hover {
+    transform: scale(1.2)
+}
+
+
+
+
 .button {
   height: 30px;
   width: 30px;

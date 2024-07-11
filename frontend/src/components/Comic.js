@@ -104,7 +104,7 @@ const Comic = () => {
                 </button>
 
                 <button
-                className=""
+                className="cart"
                 type="button"
                 onClick={() => 
                 addToCart(
@@ -117,7 +117,7 @@ const Comic = () => {
 
                     <img 
                     className="button"
-                    src="https://png.pngtree.com/element_our/20190531/ourmid/pngtree-shopping-cart-convenient-icon-image_1287807.jpg"
+                    src="https://cdn.iconscout.com/icon/free/png-256/free-shopping-cart-442-1151214.png"
                     />
                 </button>
                   <h2>${comic[0].prices[0].price}</h2>
