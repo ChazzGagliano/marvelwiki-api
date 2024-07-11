@@ -152,4 +152,31 @@ router.post("/character/unlike", async (req, res) => {
     });
   });
 
+  router.post("/cart/add", async (req, res) => {
+    console.log(req.session);
+    const userCollection = await users()
+    const userId = req.session.user._id;
+    const { comicId } = req.body;
+    const { comicTitle } = req.body;
+    const { comicPrice } = req.body;
+    const { comicImage } = req.body
+
+    await userCollection.updateOne(
+        { _id: new ObjectId(userId) },
+        {
+            $push: {
+                cart: {
+                    comicId: comicId,
+                    comicTitle: comicTitle,
+                    comicPrice: comicPrice,
+                    comicImage: comicImage,
+                }
+            }
+        }
+    )
+    res.json({
+        success: `User ${userId} added ${comicId} to cart`,
+      });
+})
+
 export default router;
