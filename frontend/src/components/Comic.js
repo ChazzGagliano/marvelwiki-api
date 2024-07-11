@@ -89,7 +89,7 @@ const Comic = () => {
                     src=""
                   />
                 </button>
-
+                  <h2>${comic[0].prices[0].price}</h2>
                 <h3>Description:</h3>
               </div>
               <div className="description"> {p.description}</div>
