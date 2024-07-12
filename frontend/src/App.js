@@ -9,6 +9,7 @@ import Event from "./components/Event"
 import Signup from "./components/Signup"
 import Login from "./components/Login"
 import Profile from "./components/Profile"
+import Cart from "./components/Cart"
 import "bootstrap/dist/css/bootstrap.min.css";
 import Navigation from "./components/Navigation.js";
 
@@ -31,6 +32,7 @@ function App() {
               <Route path="/signup" element={<Signup/>}/>
               <Route path="/login" element={<Login/>}/>
               <Route path="/Profile" element={<Profile/>}/>
+              <Route path="Cart" element={<Cart/>}/>
             </Routes>
           </div>
         </div>
