@@ -39,6 +39,12 @@ const Navigation = () => {
             Profile
           </a>
         </li>
+
+        <li className="nav-item">
+          <a className="nav-link" href="/cart">
+            Cart
+          </a>
+        </li>
         
         <li className="nav-item dropdown">
           <div
