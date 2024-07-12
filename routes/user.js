@@ -179,4 +179,18 @@ router.post("/character/unlike", async (req, res) => {
       });
 })
 
+router.get("/cart", async (req, res) => {
+    console.log(req.session);
+    if (req.session.user) {
+      const userCollection = await users();
+      const user = await userCollection.findOne({
+        _id: new ObjectId(req.session.user._id),
+      });
+  
+      return res.json({ user: user });
+    } else {
+      return res.json({ error: "You are not logged in!" });
+    }
+  });
+
 export default router;
