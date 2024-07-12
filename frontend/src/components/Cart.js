@@ -45,17 +45,19 @@ const Cart = () => {
         } else {
           return (
             <div>
+                <div>
+                    <h1>Cart</h1>
+                </div>
                 {user.data.user.cart.map((c) => {
                     return (
                         <div>
                         <div>
-                            <il>{c.comicTitle}</il>
+                            <ul>{c.comicTitle}</ul>
                         </div>
                         <div>
-                            <il>${c.comicPrice}</il>
+                            <ul>${c.comicPrice}</ul>
                         </div>
                         <div>
-                        http://i.annihil.us/u/prod/marvel/i/mg/9/40/5109ab5908cce
                         <img
                         src={c.comicImage}
                         />
