@@ -73,7 +73,9 @@ const Cart = () => {
               </div>
             );
           })}
-          <div>total: ${total}</div>
+          <div>
+            <ul>Total: ${total}</ul>
+            </div>
         </div>
       );
     }
