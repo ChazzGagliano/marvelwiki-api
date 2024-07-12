@@ -111,7 +111,7 @@ const Comic = () => {
                     comic[0].id,
                     comic[0].title,
                     comic[0].prices[0].price,
-                    comic[0].images[0].path
+                    `${comic[0].thumbnail.path}.${comic[0].thumbnail.extension}`
                 )}
                 >
 
