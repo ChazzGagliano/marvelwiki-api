@@ -193,4 +193,28 @@ router.get("/cart", async (req, res) => {
     }
   });
 
+  router.get("add/order/", async (req, res) => {
+    console.log(req.session)
+    const userCollection = await users()
+    const userId = req.session.user._id
+    const { cart } = req.body
+    const { total } = req.body
+
+    await userCollection.updateOne(
+        { _id: new ObjectId(userId) },
+        {
+            $push: {
+                order: {
+                    cart: cart,
+                    total: total,
+                }
+            }
+        }
+    )
+    res.json({
+        success: `User ${userId} order is on the way!`,
+      });
+  })
+
 export default router;
+
