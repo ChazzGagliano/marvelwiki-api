@@ -9,6 +9,7 @@ const Cart = () => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [total, setTotal] = useState(0);
+  const [totalPlusShipping, setTotalPlusShiping] = useState(0)
 
   useEffect(() => {
     async function fetchData() {
@@ -24,10 +25,26 @@ const Cart = () => {
       }
       setTotal(calculatedTotal);
       console.log(calculatedTotal);
-      setLoading(false);
-
-      setLoading(false);
+      
+      let absoluteTotal = 0;
+      let shipping = 5
+      let tax = 3
+      
+      
+      for (let i = 0; i < data.data.user.cart.length; i++) {
+          absoluteTotal += data.data.user.cart[i].comicPrice;
+        }
+        absoluteTotal += shipping
+        absoluteTotal += tax
+      
+        
+        
+        setTotalPlusShiping(absoluteTotal);
+        console.log(absoluteTotal);
+        setLoading(false);
     }
+    
+    
 
     if (user === null) {
       fetchData();
@@ -74,7 +91,10 @@ const Cart = () => {
             );
           })}
           <div>
-            <ul>Total: ${total}</ul>
+            <ul>Cart: ${total}</ul>
+            <ul>Shipping: $5</ul>
+            <ul>Tax: $3</ul>
+            <ul>Total: {totalPlusShipping}</ul>
             </div>
         </div>
       );
