@@ -199,6 +199,8 @@ router.get("/cart", async (req, res) => {
     const userId = req.session.user._id
     const { cart } = req.body
     const { total } = req.body
+    const { totalPlusShipping } = req.body
+    const { address } = req.body
 
     await userCollection.updateOne(
         { _id: new ObjectId(userId) },
@@ -207,6 +209,7 @@ router.get("/cart", async (req, res) => {
                 order: {
                     cart: cart,
                     total: total,
+                    totalPlusShipping: totalPlusShipping,
                 }
             }
         }
