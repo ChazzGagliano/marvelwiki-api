@@ -116,7 +116,7 @@ const Comic = () => {
                 >
 
                     <img 
-                    className="button"
+                    className="cart-button"
                     src="https://cdn.iconscout.com/icon/free/png-256/free-shopping-cart-442-1151214.png"
                     />
                 </button>
