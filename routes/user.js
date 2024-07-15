@@ -193,7 +193,7 @@ router.get("/cart", async (req, res) => {
     }
   });
 
-  router.get("add/order", async (req, res) => {
+  router.post("/add/order", async (req, res) => {
     console.log(req.session)
     const userCollection = await users()
     const userId = req.session.user._id
