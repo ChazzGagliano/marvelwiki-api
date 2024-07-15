@@ -168,7 +168,27 @@ body {
     transform: scale(1.2)
 }
 
+.cart-button {
+    height: 70px;
+    width: 100px;
+}
 
+.purchase {
+    border: none;
+    background-color: transparent !important;
+    width: 30px;
+    height: 30px;
+}
+
+
+.purchase:hover {
+    transform: scale(1.5)
+}
+
+.purchase-button {
+    height: 70px;
+    width: 100px;
+  }
 
 
 .button {

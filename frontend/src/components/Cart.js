@@ -106,7 +106,7 @@ const Cart = () => {
             <ul>Total: {totalPlusShipping}</ul>
           </div>
           <button
-          className=""
+          className="purchase"
           type="button"
           onClick={() => 
             handleCompleteOrder(
@@ -114,7 +114,10 @@ const Cart = () => {
                 totalPlusShipping
             )}
           >
-
+            <img
+            className="purchase-button"
+            src="https://freepngimg.com/thumb/buy/6-2-buy-now-png-pic.png"
+            />
           </button>
         </div>
       );
