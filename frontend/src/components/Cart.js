@@ -11,6 +11,17 @@ const Cart = () => {
   const [total, setTotal] = useState(0);
   const [totalPlusShipping, setTotalPlusShiping] = useState(0);
 
+       const handleCompleteOrder = async (cart, totalPlusShipping) => {
+      await axios.post(
+        `http://localhost:3030/user/add/order`,
+        {
+          cart: cart,
+          totalPlusShipping: totalPlusShipping,
+        },
+        { withCredentials: true }
+      );
+    };
+
   useEffect(() => {
     async function fetchData() {
       const data = await axios.get(`http://localhost:3030/user/cart`, {
@@ -38,20 +49,11 @@ const Cart = () => {
 
       setTotalPlusShiping(absoluteTotal);
       console.log(absoluteTotal);
+
+      
       setLoading(false);
     }
 
-    const handleCompleteOrder = async (cart, totalPlusShipping) => {
-      await axios.post(
-        `http://localhost:3030/user/add/order`,
-        {
-          cart: cart,
-          totalPlusShipping,
-          totalPlusShipping,
-        },
-        { withCredentials: true }
-      );
-    };
 
     if (user === null) {
       fetchData();
@@ -103,6 +105,17 @@ const Cart = () => {
             <ul>Tax: $3</ul>
             <ul>Total: {totalPlusShipping}</ul>
           </div>
+          <button
+          className=""
+          type="button"
+          onClick={() => 
+            handleCompleteOrder(
+                user.data.user.cart,
+                totalPlusShipping
+            )}
+          >
+
+          </button>
         </div>
       );
     }
