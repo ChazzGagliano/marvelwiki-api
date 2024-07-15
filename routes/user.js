@@ -206,7 +206,6 @@ router.get("/cart", async (req, res) => {
             $push: {
                 order: {
                     cart: cart,
-                    total: total,
                     totalPlusShipping: totalPlusShipping,
                 }
             }
