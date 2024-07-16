@@ -179,6 +179,21 @@ router.post("/character/unlike", async (req, res) => {
       });
 })
 
+router.post("/cart/unlike", async (req, res) => {
+    console.log(req.session);
+    const userCollection = await users();
+    const userId = req.session.user._id;
+    const { cart } = req.body;
+
+    await userCollection.updateOne(
+      { _id: new ObjectId(userId) },
+        {$pull: {cart: cart}}
+    );
+    res.json({
+      success: `Order placed, ${cart} removed`,
+    });
+  });
+
 router.get("/cart", async (req, res) => {
     console.log(req.session);
     if (req.session.user) {
