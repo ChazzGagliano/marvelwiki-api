@@ -179,7 +179,7 @@ router.post("/character/unlike", async (req, res) => {
       });
 })
 
-router.post("/cart/unlike", async (req, res) => {
+router.post("/cart/remove", async (req, res) => {
     console.log(req.session);
     const userCollection = await users();
     const userId = req.session.user._id;
