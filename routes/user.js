@@ -187,7 +187,7 @@ router.post("/cart/remove", async (req, res) => {
 
     await userCollection.updateOne(
       { _id: new ObjectId(userId) },
-        {$pull: {cart: cart}}
+      { $set: { cart: [] } }
     );
     res.json({
       success: `Order placed, ${cart} removed`,
