@@ -11,16 +11,26 @@ const Cart = () => {
   const [total, setTotal] = useState(0);
   const [totalPlusShipping, setTotalPlusShiping] = useState(0);
 
-       const handleCompleteOrder = async (cart, totalPlusShipping) => {
-      await axios.post(
-        `http://localhost:3030/user/add/order`,
+  const handleCompleteOrder = async (cart, totalPlusShipping) => {
+    await axios.post(
+      `http://localhost:3030/user/add/order`,
+      {
+        cart: cart,
+        totalPlusShipping: totalPlusShipping,
+      },
+      { withCredentials: true }
+    );
+  };
+
+  const deleteCart = async (cart) => {
+    await axios.post(
+        `http://localhost:3030/user/cart/remove`,
         {
-          cart: cart,
-          totalPlusShipping: totalPlusShipping,
+            cart:cart,
         },
-        { withCredentials: true }
-      );
-    };
+        { withCredentials: true } 
+    )
+  };
 
   useEffect(() => {
     async function fetchData() {
@@ -50,10 +60,8 @@ const Cart = () => {
       setTotalPlusShiping(absoluteTotal);
       console.log(absoluteTotal);
 
-      
       setLoading(false);
     }
-
 
     if (user === null) {
       fetchData();
@@ -106,17 +114,15 @@ const Cart = () => {
             <ul>Total: {totalPlusShipping}</ul>
           </div>
           <button
-          className="purchase"
-          type="button"
-          onClick={() => 
-            handleCompleteOrder(
-                user.data.user.cart,
-                totalPlusShipping
-            )}
+            className="purchase"
+            type="button"
+            onClick={() =>
+              handleCompleteOrder(user.data.user.cart, totalPlusShipping)
+            }
           >
             <img
-            className="purchase-button"
-            src="https://freepngimg.com/thumb/buy/6-2-buy-now-png-pic.png"
+              className="purchase-button"
+              src="https://freepngimg.com/thumb/buy/6-2-buy-now-png-pic.png"
             />
           </button>
         </div>
