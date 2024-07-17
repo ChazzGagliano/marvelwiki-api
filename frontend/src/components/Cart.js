@@ -30,6 +30,7 @@ const Cart = () => {
         },
         { withCredentials: true } 
     )
+    window.location.reload()
   };
 
   const completePurchase = async () => {
@@ -121,10 +122,7 @@ const Cart = () => {
           <button
             className="purchase"
             type="button"
-            onClick={() =>
-              handleCompleteOrder(user.data.user.cart, totalPlusShipping),
-              deleteCart(user.data.user.cart)
-            }
+            onClick={completePurchase}
           >
             <img
               className="purchase-button"
