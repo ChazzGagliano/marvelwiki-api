@@ -32,6 +32,11 @@ const Cart = () => {
     )
   };
 
+  const completePurchase = async () => {
+    await handleCompleteOrder(user.data.user.cart, totalPlusShipping);
+    await deleteCart(user.data.user.cart);
+  }
+
   useEffect(() => {
     async function fetchData() {
       const data = await axios.get(`http://localhost:3030/user/cart`, {
@@ -117,7 +122,8 @@ const Cart = () => {
             className="purchase"
             type="button"
             onClick={() =>
-              handleCompleteOrder(user.data.user.cart, totalPlusShipping)
+              handleCompleteOrder(user.data.user.cart, totalPlusShipping),
+              deleteCart(user.data.user.cart)
             }
           >
             <img
