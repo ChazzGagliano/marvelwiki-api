@@ -24,7 +24,7 @@ const Cart = () => {
 
   const deleteCart = async (cart) => {
     await axios.post(
-        `http://localhost:3030/user/cart/remove`,
+        `http://localhost:3030/user/cart/order`,
         {
             cart:cart,
         },
