@@ -24,19 +24,37 @@ const Cart = () => {
 
   const deleteCart = async (cart) => {
     await axios.post(
-        `http://localhost:3030/user/cart/order`,
-        {
-            cart:cart,
-        },
-        { withCredentials: true } 
-    )
-    window.location.reload()
+      `http://localhost:3030/user/cart/order`,
+      {
+        cart: cart,
+      },
+      { withCredentials: true }
+    );
+    window.location.reload();
+  };
+
+  const deleteFromCart = async (
+    comicId,
+    comicTitle,
+    comicPrice,
+    comicImage
+  ) => {
+    await axios.post(
+      `http://localhost:3030/user/cart/remove`,
+      {
+        comicId: comicId,
+        comicTitle: comicTitle,
+        comicPrice: comicPrice,
+        comicImage: comicImage,
+      },
+      { withCredentials: true }
+    );
   };
 
   const completePurchase = async () => {
     await handleCompleteOrder(user.data.user.cart, totalPlusShipping);
     await deleteCart(user.data.user.cart);
-  }
+  };
 
   useEffect(() => {
     async function fetchData() {
@@ -119,11 +137,7 @@ const Cart = () => {
             <ul>Tax: $3</ul>
             <ul>Total: {totalPlusShipping}</ul>
           </div>
-          <button
-            className="purchase"
-            type="button"
-            onClick={completePurchase}
-          >
+          <button className="purchase" type="button" onClick={completePurchase}>
             <img
               className="purchase-button"
               src="https://freepngimg.com/thumb/buy/6-2-buy-now-png-pic.png"
