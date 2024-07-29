@@ -18,7 +18,7 @@ const Comic = () => {
             comicId: comicId, 
             comicTitle: comicTitle,
             comicPrice: comicPrice,
-            comicImage, comicImage
+            comicImage: comicImage,
         },
         { withCredentials: true }
     )
