@@ -120,6 +120,14 @@ const Cart = () => {
             return (
               <div>
                 <div>
+                  <ul>{c.comicTitle}</ul>
+                </div>
+                <div>
+                  <ul>${c.comicPrice}</ul>
+                </div>
+                <div>
+                  <img src={c.comicImage} />
+                </div>
                   <div>
                     <button
                       className="cart"
@@ -139,14 +147,6 @@ const Cart = () => {
                       />
                     </button>
                   </div>
-                  <ul>{c.comicTitle}</ul>
-                </div>
-                <div>
-                  <ul>${c.comicPrice}</ul>
-                </div>
-                <div>
-                  <img src={c.comicImage} />
-                </div>
               </div>
             );
           })}
