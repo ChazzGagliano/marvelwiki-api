@@ -120,6 +120,20 @@ const Cart = () => {
             return (
               <div>
                 <div>
+                <button
+                className="delete"
+                type="button"
+                onClick={() => 
+                deleteFromCart(
+                    c.comicId,
+                    c.comicTitle,
+                    c.comicPrice,
+                    c.comicImage
+                )}
+                >
+                </button>
+                </div>
+                <div>
                   <ul>{c.comicTitle}</ul>
                 </div>
                 <div>
