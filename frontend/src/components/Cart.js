@@ -49,6 +49,7 @@ const Cart = () => {
       },
       { withCredentials: true }
     );
+    window.location.reload();
   };
 
   const completePurchase = async () => {
