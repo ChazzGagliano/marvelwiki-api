@@ -120,24 +120,25 @@ const Cart = () => {
             return (
               <div>
                 <div>
-                <div>
-                <button
-                className="delete"
-                type="button"
-                onClick={() => 
-                deleteFromCart(
-                    c.comicId,
-                    c.comicTitle,
-                    c.comicPrice,
-                    c.comicImage
-                )}
-                >
-                    <img
+                  <div>
+                    <button
+                      className="cart"
+                      type="button"
+                      onClick={() =>
+                        deleteFromCart(
+                          c.comicId,
+                          c.comicTitle,
+                          c.comicPrice,
+                          c.comicImage
+                        )
+                      }
+                    >
+                      <img
                         className="button"
                         src="https://www.svgrepo.com/show/21045/delete-button.svg"
                       />
-                </button>
-                </div>
+                    </button>
+                  </div>
                   <ul>{c.comicTitle}</ul>
                 </div>
                 <div>
