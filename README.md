@@ -1,5 +1,5 @@
 Marvel Wiki App
-Utilizes data from https://developer.marvel.com/ using axios.
+External API: https://developer.marvel.com/
 
 Welcome to the Marvel Wiki App! This project is inspired by my love for Marvel Comics growing up. I created this app to provide fans with a comprehensive resource for exploring Marvel characters and their appearances in various comics, stories, and events. The app allows users to search for characters, view detailed information, create accounts, and manage a list of favorite characters.
 
