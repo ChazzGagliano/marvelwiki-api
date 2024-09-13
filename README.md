@@ -11,6 +11,8 @@ Features:
 
 - Data Integration: The app utilizes the Marvel API to fetch and display data.
 
+- Users can add any comic provided by the Marvel API and complete orders
+
 Technologies Used:
 
 Backend
