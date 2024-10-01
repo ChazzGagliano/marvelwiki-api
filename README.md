@@ -11,6 +11,8 @@ Features:
 
 - Data Integration: The app utilizes the Marvel API to fetch and display data.
 
+- Users can add any comic provided by the Marvel API and complete orders
+
 Technologies Used:
 
 Backend
@@ -29,7 +31,7 @@ Challenges:
 
 One of the main challenges faced during the development of this project was gaining overall comfort with MongoDB. This was my first independent project implementing MongoDB, and getting the CRUD basics down was an obstacle I proudly overcame. Prior to this project, my backend knowledge was primarily with Ruby on Rails and PostgreSQL. Essentially, all of the backend features in this project were relatively new to me.
 
-I addedd the ability for users to add/remove comic books to their cart. Furthermore, they can place an order for their carted items. 
+I added the ability for users to add/remove comic books to their cart. Furthermore, they can place an order for their carted items. 
 
 Future Plans
 
