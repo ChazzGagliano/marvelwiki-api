@@ -96,7 +96,7 @@ const Cart = () => {
   if (loading) {
     return <Loading />;
   } else {
-    if (user.data.error) {
+    if (user.data === null) {
       return (
         <div>
           <div>
@@ -129,25 +129,25 @@ const Cart = () => {
                 <div>
                   <img src={c.comicImage} />
                 </div>
-                  <div>
-                    <button
-                      className="cart"
-                      type="button"
-                      onClick={() =>
-                        deleteFromCart(
-                          c.comicId,
-                          c.comicTitle,
-                          c.comicPrice,
-                          c.comicImage
-                        )
-                      }
-                    >
-                      <img
-                        className="button"
-                        src="https://www.svgrepo.com/show/21045/delete-button.svg"
-                      />
-                    </button>
-                  </div>
+                <div>
+                  <button
+                    className="cart"
+                    type="button"
+                    onClick={() =>
+                      deleteFromCart(
+                        c.comicId,
+                        c.comicTitle,
+                        c.comicPrice,
+                        c.comicImage
+                      )
+                    }
+                  >
+                    <img
+                      className="button"
+                      src="https://www.svgrepo.com/show/21045/delete-button.svg"
+                    />
+                  </button>
+                </div>
               </div>
             );
           })}
