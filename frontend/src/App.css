@@ -214,9 +214,6 @@ body {
 
 
 
-.delete:hover {
-    transform: scale(1.5);
-}
 
 .logout {
     border: none;
@@ -272,5 +269,9 @@ body {
 
 .pool-logo {
     width: 75px;
-  height: 70px;
+  height: px;
+}
+
+.pool-logo:hover {
+
 }
