@@ -125,13 +125,13 @@ body {
 }
 
 .linkage-2 {
-    color: white;
-    margin-top: 10px;
-    width: 1000px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto; 
-  }
+  color: white;
+  margin-top: 10px;
+  width: 1000px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 .img_comic {
   width: 500px;
@@ -158,38 +158,36 @@ body {
 }
 
 .cart {
-    border: none;
-    background-color: transparent !important;
-    height: 60px;
-    width: 60px;  
+  border: none;
+  background-color: transparent !important;
+  height: 60px;
+  width: 60px;
 }
 
 .cart:hover {
-    transform: scale(1.2)
+  transform: scale(1.2);
 }
 
 .cart-button {
-    height: 60px;
-    width:60px;
+  height: 60px;
+  width: 60px;
 }
 
 .purchase {
-    border: none;
-    background-color: transparent !important;
-    width: 30px;
-    height: 30px;
+  border: none;
+  background-color: transparent !important;
+  width: 30px;
+  height: 30px;
 }
 
-
 .purchase:hover {
-    transform: scale(1.5)
+  transform: scale(1.5);
 }
 
 .purchase-button {
-    height: 70px;
-    width: 100px;
-  }
-
+  height: 70px;
+  width: 100px;
+}
 
 .button {
   height: 30px;
@@ -197,8 +195,8 @@ body {
 }
 
 .logout-button {
-    height: 40px;
-    width: 40px;
+  height: 40px;
+  width: 40px;
 }
 
 .delete {
@@ -213,20 +211,20 @@ body {
 }
 
 .delete:hover {
-    transform: scale(1.5);
+  transform: scale(1.5);
 }
 
 .logout {
-    border: none;
-    background-color: transparent !important;
-    height: 50px;
-    width: 50px;
-    display: block;
-    margin-right: auto;
+  border: none;
+  background-color: transparent !important;
+  height: 50px;
+  width: 50px;
+  display: block;
+  margin-right: auto;
 }
 
 .logout:hover {
-    transform: scale(1.5);
+  transform: scale(1.5);
 }
 
 .headline {
@@ -269,10 +267,10 @@ body {
 }
 
 .pool-logo {
-    width: 75px;
+  width: 75px;
   height: px;
 }
 
 .pool-logo:hover {
-    transform: rotate(-30deg) scale(1.4)
+  transform: rotate(-30deg) scale(1.4);
 }
