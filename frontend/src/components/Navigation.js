@@ -5,19 +5,12 @@ const Navigation = () => {
 
     return ( <nav className="navbar navbar-expand-lg navbar-light bg-white">
     <a className="navbar-brand" href="/">
-      Home
-    </a>
-    <button
-      className="navbar-toggler"
-      type="button"
-      data-toggle="collapse"
-      data-target="#navbarNavDropdown"
-      aria-controls="navbarNavDropdown"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span className="navbar-toggler-icon"></span>
-    </button>
+        <img
+        className="pool-logo"
+        src="https://e7.pngegg.com/pngimages/907/922/png-clipart-deadpool-illustration-deadpool-logo-youtube-deathstroke-comics-deadpool-superhero-film.png"
+        >
+        </img>
+        </a>
 
     <div className="collapse navbar-collapse" id="navbarNavDropdown">
       <ul className="navbar-nav">
