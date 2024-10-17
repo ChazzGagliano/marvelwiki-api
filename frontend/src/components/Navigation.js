@@ -7,7 +7,7 @@ const Navigation = () => {
     <a className="navbar-brand" href="/">
         <img
         className="pool-logo"
-        src="https://e7.pngegg.com/pngimages/907/922/png-clipart-deadpool-illustration-deadpool-logo-youtube-deathstroke-comics-deadpool-superhero-film.png"
+        src="https://i.pinimg.com/originals/67/2e/c0/672ec07e8a6032ac926f2011cb29d3b1.png"
         >
         </img>
         </a>
