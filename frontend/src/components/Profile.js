@@ -93,7 +93,7 @@ const Profile = () => {
           <button className="" type="button" onClick={handleDeleteAccount}>
             Delete Account
           </button>
-          <div>
+          <div className="favorites">
             {user.data.user.characters.map((c) => {
               return (
                 <div>
