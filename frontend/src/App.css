@@ -274,3 +274,7 @@ body {
 .pool-logo:hover {
   transform: rotate(-30deg) scale(1.4);
 }
+
+.favorites {
+    margin: 20px
+}

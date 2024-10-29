@@ -77,7 +77,7 @@ const Profile = () => {
       );
     } else {
       return (
-        <div>
+        <div className="favorites">
           <div>
             <h1>{user.data.user.username}</h1>
             <div>
@@ -96,7 +96,7 @@ const Profile = () => {
           <div className="favorites">
             {user.data.user.characters.map((c) => {
               return (
-                <div>
+                <div className="favorites">
                   <div>
                     <Link to={`/characters/${c.characterId}`}>
                       {<img src={c.characterImage} className="img" />}
