@@ -97,7 +97,7 @@ const Cart = () => {
   if (loading) {
     return <Loading />;
   } else {
-    if (data.error == "You are not logged in!") {
+    if (user.data === null) {
       return (
         <div>
           <div>
