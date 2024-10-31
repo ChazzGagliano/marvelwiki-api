@@ -65,27 +65,44 @@ const Cart = () => {
       setUser(data);
       console.log(data);
 
-      let calculatedTotal = 0;
-      for (let i = 0; i < data.data.user.cart.length; i++) {
-        calculatedTotal += data.data.user.cart[i].comicPrice;
-      }
-      setTotal(calculatedTotal);
-      console.log(calculatedTotal);
-
-      let absoluteTotal = 0;
-      let shipping = 5;
-      let tax = 3;
-
-      for (let i = 0; i < data.data.user.cart.length; i++) {
-        absoluteTotal += data.data.user.cart[i].comicPrice;
-      }
-      absoluteTotal += shipping;
-      absoluteTotal += tax;
-
-      setTotalPlusShiping(absoluteTotal);
-      console.log(absoluteTotal);
-
-      setLoading(false);
+      if (user.data) {
+          let calculatedTotal = 0;
+          for (let i = 0; i < data.data.user.cart.length; i++) {
+              calculatedTotal += data.data.user.cart[i].comicPrice;
+            }
+            setTotal(calculatedTotal);
+            console.log(calculatedTotal);
+            
+            let absoluteTotal = 0;
+            let shipping = 5;
+            let tax = 3;
+            
+            for (let i = 0; i < data.data.user.cart.length; i++) {
+                absoluteTotal += data.data.user.cart[i].comicPrice;
+            }
+            absoluteTotal += shipping;
+            absoluteTotal += tax;
+            
+            setTotalPlusShiping(absoluteTotal);
+            console.log(absoluteTotal);
+            
+        } else {
+            return (
+                <div>
+                  <div>
+                    <Link className="linkage-2" to={`/signup`}>
+                      <h1>New? Sign up!</h1>
+                    </Link>
+                  </div>
+                  <div>
+                    <Link className="linkage-2" to={`/login`}>
+                      <h1>Already a Member? Login!</h1>
+                    </Link>
+                  </div>
+                </div>
+              );
+        }
+        setLoading(false);
     }
 
     if (user === null) {
@@ -96,22 +113,6 @@ const Cart = () => {
   if (loading) {
     return <Loading />;
   } else {
-    if (user.data === null) {
-      return (
-        <div>
-          <div>
-            <Link className="linkage-2" to={`/signup`}>
-              <h1>New? Sign up!</h1>
-            </Link>
-          </div>
-          <div>
-            <Link className="linkage-2" to={`/login`}>
-              <h1>Already a Member? Login!</h1>
-            </Link>
-          </div>
-        </div>
-      );
-    } else {
       return (
         <div>
           <div>
@@ -167,6 +168,6 @@ const Cart = () => {
       );
     }
   }
-};
+;
 
 export default Cart;
