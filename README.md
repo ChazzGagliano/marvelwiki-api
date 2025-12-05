@@ -1,40 +1,142 @@
-Marvel Wiki App
-External API: https://developer.marvel.com/
+# Marvel Wiki App 
 
-Welcome to the Marvel Wiki App! This project is inspired by my love for Marvel Comics growing up. I created this app to provide fans with a comprehensive resource for exploring Marvel characters and their appearances in various comics, stories, and events. The app allows users to search for characters, view detailed information, create accounts, and manage a list of favorite characters.
+A full-stack Marvel encyclopedia and shopping experience built with **Node/Express**, **MongoDB**, and **React**.
 
-Features:
+Users can:
+- Search for Marvel characters
+- View detailed info, comics, stories, and events
+- Create an account and save favorites
+- Add comics to a cart and place orders
 
-- Character Search: Users can search for Marvel characters and view detailed information, including their appearances in comics, stories, and events.
+All character and comic data comes from the official **[Marvel Developer API](https://developer.marvel.com/)**.
 
-- User Accounts: Users can create accounts to manage and save a list of their favorite characters.
+---
 
-- Data Integration: The app utilizes the Marvel API to fetch and display data.
+## Project Purpose
 
-- Users can add any comic provided by the Marvel API and complete orders
+This project is a mix of:
+- A **fan wiki** for Marvel characters
+- A **basic e-commerce flow** for comics
 
-Technologies Used:
+I built it to:
+- Get comfortable building a **full MERN-style app** around a third-party API
+- Use **MongoDB** for user accounts, favorites, carts, and orders
+- Connect a **React frontend** to a custom **Node/Express backend**
 
-Backend
+---
 
-- Express/Node.js: Used for handling server-side logic and API requests.
+## Core Features
 
-- MongoDB: Used for storing user data and character lists.
+### Search Character Search & Details
+- Search for Marvel characters by name
+- View detailed info for each character:
+  - Description
+  - Thumbnail image
+  - Comics they appear in
+  - Stories and events they’re part of
 
-- Frontend
+### User Accounts & Favorites
+- Users can **sign up / log in**
+- Logged-in users can **save characters as favorites**
+- Favorites are stored in **MongoDB** and tied to each user account
 
-- React.js: Used for building the user interface.
+### Comics, Cart & Orders
+- Browse comics returned from the Marvel API
+- Add any comic to a **shopping cart**
+- View the cart and **place an order** for selected comics
+- Orders are persisted in MongoDB
 
-CSS, HTML, Tailwind, Bootstrap: Used for styling and layout.
+> Future enhancement: View an order history and cancel existing orders.
 
-Challenges:
+---
 
-One of the main challenges faced during the development of this project was gaining overall comfort with MongoDB. This was my first independent project implementing MongoDB, and getting the CRUD basics down was an obstacle I proudly overcame. Prior to this project, my backend knowledge was primarily with Ruby on Rails and PostgreSQL. Essentially, all of the backend features in this project were relatively new to me.
+#Tech Stack
 
-I added the ability for users to add/remove comic books to their cart. Furthermore, they can place an order for their carted items. 
+### Backend
+- **Node.js / Express**
+  - Custom REST API for characters, favorites, cart, and orders
+  - Routes under `routes/` handle different resources (characters, users, etc.)
+- **MongoDB**
+  - Stores users, favorites, carts, and orders
+- **Config**
+  - `config/` used for environment setup / DB connection and API keys
 
-Future Plans
+### Frontend
+- **React.js** (in the `frontend/` directory)
+  - Character search UI
+  - Character detail pages
+  - Favorites, cart, and order flows
+- **Styling**
+  - CSS, HTML, plus utility frameworks like **Tailwind** and **Bootstrap** for layout and components
 
-- Ability to view and cancel orders.
+---
 
-- Like/Unlike Button: I plan to add a like/unlike button to enhance user interaction with characters.
+## 📁 Project Structure
+
+```text
+marvelwiki-api/
+├─ config/           # Configuration (DB, environment, etc.)
+├─ frontend/         # React frontend app
+├─ routes/           # Express route definitions
+├─ app.js            # Express app entry point
+├─ package.json      # Backend dependencies & scripts
+└─ README.md
+
+Got you — here is ONE single clean block you can copy all at once and paste straight into your README.
+No breaks, no extra chat — just the full Getting Started section in one piece.
+
+⸻
+
+
+#Getting Started
+
+Follow these steps to run the Marvel Wiki App locally.
+
+### 1. Clone the repository
+```bash
+git clone https://github.com/ChazzGagliano/marvelwiki-api.git
+cd marvelwiki-api
+
+2. Install backend dependencies
+
+npm install
+
+3. Set up environment variables
+
+Create a .env file in the root of the project and add:
+
+MARVEL_PUBLIC_KEY=your_public_key_here
+MARVEL_PRIVATE_KEY=your_private_key_here
+MONGODB_URI=your_mongodb_connection_string
+PORT=3000
+
+(You can get your Marvel API keys from https://developer.marvel.com/)
+
+4. Start the backend server
+
+npm start
+
+Your backend should now be running at:
+
+http://localhost:3000
+
+5. Install and start the frontend
+
+cd frontend
+npm install
+npm start
+
+The frontend will run at:
+
+http://localhost:5173
+
+You’re all set!
+
+You can now:
+	•	Search Marvel characters
+	•	View comics, stories, and events
+	•	Create an account
+	•	Save favorites
+	•	Add comics to your cart
+	•	Place orders
+
